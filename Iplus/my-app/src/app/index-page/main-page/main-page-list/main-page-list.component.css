@@ -1,0 +1,28 @@
+/* CrisisListComponent's private CSS styles */
+.headerImg {
+  width: 100%;
+  height: 200px
+}
+
+.example-card {
+  /*max-width: 100%;*/
+  margin: 10px;
+  box-shadow: 1px 6px 10px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/*.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}*/
+
+.main-div {
+  /*width: 95%;
+  margin: auto;*/
+  max-width: 1150px;
+  margin: auto;
+}
+
+.half-parent{
+  width: 50%;
+  float: right;
+}

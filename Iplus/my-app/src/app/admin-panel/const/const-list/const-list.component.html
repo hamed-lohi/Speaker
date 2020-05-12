@@ -1,0 +1,91 @@
+<!--<ul class="crises">
+  <li *ngFor="let crisis of crises$ | async"
+      [class.selected]="crisis.id === selectedId">
+    <a [routerLink]="[crisis.id]">
+      <span class="badge">{{ crisis.id }}</span>{{ crisis.name }}
+    </a>
+  </li>
+</ul>-->
+
+<mat-toolbar color="basic" class="mat-toolbar-class">
+  <!--<mat-toolbar-row> -->
+  <button mat-stroked-button matTooltip="جدید" matTooltipShowDelay="700" color="primary" (click)="openDialog(true)"><mat-icon class="example-icon">add</mat-icon></button>
+  <button mat-stroked-button matTooltip="ویرایش" matTooltipShowDelay="700" color="primary" (click)="openDialog(false)"><mat-icon class="example-icon">edit</mat-icon></button>
+  <button mat-stroked-button matTooltip="حذف" matTooltipShowDelay="700" color="warn" (click)="deleteRecords()"><mat-icon class="example-icon">delete</mat-icon></button>
+  <button mat-stroked-button matTooltip="بازآوری اطلاعات" matTooltipShowDelay="700" color="primary" (click)="getDataTable()"><mat-icon class="example-icon">refresh</mat-icon></button>
+
+  <button mat-stroked-button *ngIf="!selectedRecord" matTooltip="لیست ثابت ها" matTooltipShowDelay="700" color="primary" (click)="getChilds()"><mat-icon class="example-icon">list</mat-icon></button>
+  <button mat-stroked-button *ngIf="selectedRecord" matTooltip="لیست دسته بندی ها" matTooltipShowDelay="700" color="primary" (click)="getCategories()"><mat-icon class="example-icon">view_headline</mat-icon></button>
+
+  <button mat-button></button>
+  <button mat-button *ngIf="!selectedRecord" >{{"لیست دسته بندی ها :"}}</button>
+  <button mat-button *ngIf="selectedRecord" >{{"لیست ثابت های :"}}</button>
+  <mat-chip *ngIf="selectedRecord" color="accent" selected>{{selectedRecord.ConstName}}</mat-chip>
+
+  <!-- </mat-toolbar-row> -->
+</mat-toolbar>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()"
+                      (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <!--<ng-container matColumnDef="index">
+      <th mat-header-cell *matHeaderCellDef> ردیف </th>
+      <td mat-cell *matCellDef="let element; let i = index;"> {{i+1}} </td>
+    </ng-container>-->
+
+    <!-- Url Column -->
+    <ng-container matColumnDef="ImageUrl">
+      <th mat-header-cell *matHeaderCellDef> آیکن </th>
+      <td mat-cell *matCellDef="let element">
+        <img *ngIf="element.ImageUrl" [src]="element.ImageUrl" width="30" height="30"/>
+        <mat-icon *ngIf="!element.ImageUrl" class="example-icon">photo</mat-icon>
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Id">
+      <th mat-header-cell *matHeaderCellDef> شناسه </th>
+      <td mat-cell *matCellDef="let element"> {{element.Id}} </td>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="ConstName">
+      <th mat-header-cell *matHeaderCellDef> عنوان </th>
+      <td mat-cell *matCellDef="let element"> {{element.ConstName}} </td>
+    </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Priority">
+      <th mat-header-cell *matHeaderCellDef> اولویت </th>
+      <td mat-cell *matCellDef="let element"> {{element.Priority}} </td>
+    </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="ConstNumber">
+      <th mat-header-cell *matHeaderCellDef> تعداد ثابت </th>
+      <td mat-cell *matCellDef="let element"> {{element.ConstNumber}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index" (click)="selection.toggle(row)"></tr>
+
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>
+</div>
+
+<router-outlet></router-outlet>

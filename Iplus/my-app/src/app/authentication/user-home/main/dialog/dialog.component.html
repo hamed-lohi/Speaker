@@ -1,0 +1,119 @@
+
+<h1 mat-dialog-title>
+  <img [src]="(data.ImageUrl? data.ImageUrl : '/Content/Images/TheSpeakerImages/personelIcon.png')" width="60" height="60" />
+  <!--<div class="container">
+    <button md-raised-button color="primary" (click)="fileInput.click()">Upload</button>
+    <input id="ImageUrl" hidden type="file" (change)="onSelectFile($event)" #fileInput>-->
+    
+    <button mat-mini-fab color="warn" *ngIf="data.ImageUrl" mat-stroked-button matTooltip="حذف عکس" matTooltipShowDelay="700" color="warn" (click)="deleteImage(data.ImageFileId)">
+      <mat-icon class="example-icon">clear</mat-icon>
+    </button>
+    <input *ngIf="!data.ImageUrl" type='file' id="ImageFileIdField" #ImageFileIdField (change)="handleFileInput(ImageFileIdField)" >
+
+  <!--</div>-->
+
+  <!--<angular-file-uploader 
+    [config]="afuConfig"
+    [resetUpload]=resetVar
+    (ApiResponse)="DocUpload($event)">
+  </angular-file-uploader>-->
+
+</h1>
+<div mat-dialog-content>
+
+  <mat-form-field>
+    <input matInput placeholder="نام" [(ngModel)]="data.FName" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="نام خانوادگی" [(ngModel)]="data.LName" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="شماره همراه" [(ngModel)]="data.MobileNumber" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="دانشگاه" [(ngModel)]="data.University">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="رشته تحصیلی" [(ngModel)]="data.Major">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="مقطع" [(ngModel)]="data.Grade">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="زمینه های سخنرانی" [(ngModel)]="data.TblSpeechFieldIds" multiple>
+      <mat-option *ngFor="let item of selectListSpeechFields" [value]="item.Id">
+        {{item.Text}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="شهر" [(value)]="data.CityId">
+      <mat-option>--انتخاب کنید--</mat-option>
+      <mat-option *ngFor="let city of selectListCity" [value]="city.Id">
+        {{city.Text}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <section class="example-section">
+    <mat-checkbox class="example-margin" [(ngModel)]="data.IsApproved" [matTooltip]="data.ApprovedDate" matTooltipPosition="left">تایید شده</mat-checkbox>
+  </section>
+
+  <section class="example-section">
+    <mat-checkbox class="example-margin" [(ngModel)]="data.IsPublished" [matTooltip]="data.ApprovedDate" matTooltipPosition="left">منتشر شده</mat-checkbox>
+  </section>
+
+  <!--<mat-form-field>
+    <input matInput placeholder="تاریخ و زمان تایید " [(ngModel)]="data.ApprovedDate">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="تاریخ و زمان انتشار " [(ngModel)]="data.PublishDate">
+  </mat-form-field>-->
+
+  <mat-form-field>
+    <input matInput type="number" placeholder="اولویت" [(ngModel)]="data.Priority">
+  </mat-form-field>
+
+  <!--<mat-form-field>
+    <input matInput type="file" class="ng-hide" id="input-file-id" multiple />
+  </mat-form-field>-->
+  <!--<div>
+    <input id="fileInput" type="file" style="display: none;">
+    <button mat-button color="warn" class="md-raised" (click)="upload()">
+      <mat-icon class="material-icons">attach_file</mat-icon>
+    </button>
+  </div>-->
+
+  <mat-form-field>
+    <textarea matInput placeholder="توضیحات" [(ngModel)]="data.Description"></textarea>
+  </mat-form-field>
+  <hr/>
+
+
+  <div>
+    <!--<img [src]="(data.ImageUrl? data.ImageUrl : '/Content/Images/TheSpeakerImages/personelIcon.png')" width="60" height="60" /><br/>-->
+    <div class="container">
+      <button md-raised-button color="primary" (click)="fileInput.click()">Upload</button>
+      <input id="ResumeUrl" hidden type="file" #fileInput>
+    </div>
+  </div>
+
+</div>
+
+<section class="example-section">
+  <mat-progress-bar
+    class="example-margin"
+    color="primary"
+    mode="indeterminate"
+    value="50"
+    bufferValue="75">
+  </mat-progress-bar>
+</section>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">لغو</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>تایید</button>
+</div>

@@ -1,0 +1,120 @@
+.example-container {
+  position: absolute;
+  /*top: 60px;
+  bottom: 60px;*/
+  left: 0;
+  right: 0;
+  background-image: linear-gradient(#215dba1c 6%, #b6dcf863, #ffffff);
+}
+
+.example-sidenav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  background: rgba(200,200,200,0.2);
+}
+
+.example-header {
+  /*position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background-image: url('../../assets/Image/aaa.png');
+  background-size: contain;*/
+}
+
+.example-header {
+  background-image: linear-gradient(#215dbac2 6%, #f1f9ff63, #ffffff);
+}
+
+
+.example-footer {
+  background-size: 100% 100%;
+  background-image: url('../../assets/Image/footer-bg.jpg');
+  height: 220px;
+  padding: 12px;
+  font-size: 12px;
+  margin-top: 40px;
+}
+
+.example-sidenav a {
+  display: block
+}
+
+.selected {
+  background-color: #87ceeb;
+  color: white;
+}
+
+.user-actions-toolbar {
+  /*left: 5px;
+  position: absolute;*/
+}
+
+.example-fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+/*.logo-sub-title {
+  font-family: Hayat;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  vertical-align: bottom !important;
+  text-shadow: -1px -1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000, 1px 1px 1px #000;
+}*/
+
+.mat-stroked-button {
+  padding: 0 12px;
+  line-height: 28px;
+  font-size: 10px;
+}
+
+
+.example-card-footer {
+  width: 180px;
+  background-color: unset;
+  color: #23272b;
+  box-shadow: none;
+  padding: 6px;
+}
+
+.mat-card-title {
+  font-size: 10px !important;
+  /*color: antiquewhite;*/
+}
+
+.mat-card-content a {
+  font-size: 10px;
+  padding: 0;
+}
+
+.mat-card-content {
+  font-size: 10px !important;
+}
+
+.mat-card-header {
+  direction: rtl;
+}
+
+
+.ltr-acc {
+  direction: ltr;
+  font-size: 10px !important;
+}
+
+  .ltr-acc img {
+    width: 20px;
+  }
+
+.mat-menu-item {
+  font-size: 12px;
+}
+
+::ng-deep .mat-search_field,
+::ng-deep .mat-search_icons .mat-icon {
+  background: unset !important;
+}

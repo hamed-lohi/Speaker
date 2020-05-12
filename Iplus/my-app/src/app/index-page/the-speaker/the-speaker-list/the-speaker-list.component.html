@@ -1,0 +1,122 @@
+<!--<ul class="crises">
+  <li *ngFor="let crisis of crises$ | async"
+      [class.selected]="crisis.id === selectedId">
+    <a [routerLink]="[crisis.id]">
+      <span class="badge">{{ crisis.id }}</span>{{ crisis.name }}
+    </a>
+  </li>
+</ul>-->
+<!--<mat-toolbar color="basic" class="mat-toolbar-class">
+  <mat-toolbar-row>
+    <button mat-stroked-button matTooltip="ثبت سخنران جدید" matTooltipShowDelay="700" color="primary" (click)="openDialog(true)"><mat-icon class="example-icon">add</mat-icon></button>
+    <button mat-stroked-button matTooltip="ویرایش" matTooltipShowDelay="700" color="primary" (click)="openDialog(false)"><mat-icon class="example-icon">edit</mat-icon></button>
+    <button mat-stroked-button matTooltip="حذف" matTooltipShowDelay="700" color="warn" (click)="deleteRecords()"><mat-icon class="example-icon">delete</mat-icon></button>
+
+  </mat-toolbar-row>
+</mat-toolbar>-->
+
+  <div style="max-width: 1150px; margin: auto;">
+
+    <a style="display:none;" [routerLink]="'/index-page/the-speaker/301'">
+      اساتید و سخنرانان
+    </a>
+
+    <a style="display:none;" [routerLink]="'/index-page/the-speaker/302'">
+      فعال ادبی و هنری
+    </a>
+
+    <a style="display:none;" [routerLink]="'/index-page/the-speaker/303'">
+      راوی دفاع مقدس
+    </a>
+
+    <a style="display:none;" [routerLink]="'/index-page/the-speaker/304'">
+      فعال و نخبه قرآنی
+    </a>
+
+    <a style="display:none;" [routerLink]="'/index-page/the-speaker/305'">
+      مداح و ستایشگر
+    </a>
+
+    <a style="display:none;" [routerLink]="'/index-page/the-speaker/306'">
+      گروه سرود و تواشیح
+    </a>
+
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>جستجو</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content fxLayout="row wrap" fxLayoutAlign="space-evenly none">
+        <!--<h3 class="example-h2">زمینه های سخنرانی :</h3>-->
+        <!--<mat-form-field>
+        <mat-select placeholder="نوع فعالیت" [(ngModel)]="activityId" (selectionChange)="fillDependSelect()" required>
+          <mat-option *ngFor="let item of selectListActivityTypes" [value]="item.Id">
+            {{item.Text}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>-->
+
+        <mat-form-field>
+          <mat-select class="select-class" placeholder="زمینه فعالیت" [(ngModel)]="speechFieldIds" multiple>
+            <mat-option *ngFor="let item of selectListSpeechFields" [value]="item.Id">
+              <img *ngIf="item.ImageUrl" [src]="item.ImageUrl" width="25" height="25" />
+              <!--<mat-icon *ngIf="!item.ImageUrl">photo</mat-icon>-->
+              {{item.Text}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <!--<section class="example-section"  fxLayout="row wrap" fxLayoutAlign="space-evenly none" *ngFor="let element of speackFeelds" >
+        <mat-checkbox class="example-margin" [(ngModel)]="checked">
+          <img *ngIf="element.ImageUrl" [src]="element.ImageUrl" width="30" height="30"/>
+          <mat-icon *ngIf="!element.ImageUrl">photo</mat-icon>
+          <span>Checked</span>
+        </mat-checkbox>
+
+        <mat-checkbox class="example-margin" [(ngModel)]="indeterminate">Indeterminate</mat-checkbox>
+      </section>-->
+
+      </mat-card-content>
+    </mat-card>
+
+
+
+    <div class="main-div" fxLayout="row wrap" fxLayoutAlign="space-evenly none">
+
+
+      <div class="card-item" *ngFor="let element of dataSource.data" (click)="showDetail(element.Id)">
+        <mat-card class="example-card">
+          <mat-card-header class="example-speaker-list">
+            <!--<div mat-card-avatar class="example-header-image">-->
+            <!--</div>-->
+            <!--<div mat-card-avatar> <mat-icon style="color: deepskyblue; font-size: 32px; font-weight: bold;">assignment_ind</mat-icon></div>-->
+
+            <mat-card-title *ngIf="element.SSActivityId == 306">{{element.GroupName}}</mat-card-title>
+
+            <!--<ng-container >-->
+            <mat-card-title *ngIf="element.SSActivityId != 306">{{element.LName}}</mat-card-title>
+            <mat-card-subtitle *ngIf="element.SSActivityId != 306">{{element.FName}}</mat-card-subtitle>
+            <!--</ng-container>-->
+          </mat-card-header>
+
+          <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+          <img mat-card-image [src]="(element.ImageUrl? element.ImageUrl : '/Content/Images/TheSpeakerImages/personelIcon.png')" />
+          <mat-card-content>
+            <!--<p>{{element.TblSpeechFieldNames}}</p>-->
+            <mat-chip-list>
+              <mat-chip *ngFor="let item of element.TblSpeechFieldNames">{{item}}</mat-chip>
+            </mat-chip-list>
+          </mat-card-content>
+          <mat-card-actions>
+            <!--<button mat-button mat-raised-button color="primary">درخواست سخنران</button>
+          <button mat-button>SHARE</button>-->
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+
+    <!--<router-outlet></router-outlet>-->
+
+
+  </div>

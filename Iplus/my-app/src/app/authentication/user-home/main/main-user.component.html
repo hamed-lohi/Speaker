@@ -1,0 +1,11 @@
+
+<!--<router-outlet></router-outlet>-->
+<!--<router-outlet name="accountsection"></router-outlet>-->
+
+<div style="min-height: 350px;">
+
+  <app-my-account *ngIf="tabType==2"></app-my-account>
+  <app-my-profile *ngIf="tabType==19"></app-my-profile>
+  <app-change-password *ngIf="tabType==20"></app-change-password>
+
+</div>

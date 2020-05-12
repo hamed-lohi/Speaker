@@ -1,0 +1,116 @@
+﻿@{
+    ViewBag.Title = "ارتباط با ما";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<article class="contact">
+    <div class="container">
+        <div class="contact-gray">
+            <div class="row">
+                <h3 class="aqua hero--title">تماس با ما</h3>
+                <div class="col--small-12 col--medium-6 col-vertical-align_top">
+                    <div class="col-inner">
+                        <h6>دفتر مرکزی</h6>
+                        <p>
+                            آدرس:
+                            <span class="typo_value">تبریز، چهارراه شریعتی، به طرف باغ گلستان، مجتمع پلاسما، پلاک ۲</span>
+                            <br>تلفن:
+                            <span class="typo_value">۱۷ ۸۸ ۳۵۵۷ – ۰۴۱</span>
+                            <br>ایمیل : <a href="mailto:Info@zangole.net" class="typo_value">Info@zangole.net</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col--small-12 col--medium-6 col-vertical-align_top">
+                    <div class="col-inner">
+                        <form id="contact-form" class="form form--center">
+                            <h6>چگونه میتوانیم به شما کمک کنیم؟</h6>
+                            <label class="label">
+                                <span class="place">نام و نام خانوادگی:</span>
+                                <input id="name" type="text" placeholder="نام و نام خانوادگی خود را وارد کنید..." class="input is-border">
+                            </label>
+                            <label class="label">
+                                <span class="place">پست الکترونیک:</span>
+                                <input id="email" type="email" placeholder="پست الکترونیک خود را وارد کنید..." class="input is-border">
+                            </label>
+                            <label class="label">
+                                <span class="place">موضوع:</span>
+                                <input id="subject" type="text" placeholder="موضوع خود را وارد کنید..." class="input is-border">
+                            </label>
+                            <label class="label">
+                                <span class="place">پیام شما:</span>
+                                <textarea id="message" name="" cols="30" rows="5" class="input is-border" placeholder="متن پیام..."></textarea>
+                            </label>
+                            <input type="button" id="contactBtn" class="btn btn-color-aqua large" value="ارسال"/>
+
+                            <!-- Modal -->
+                            <div id="myModal" class="modal fade" role="dialog">
+                                <div class="modal-dialog modal-sm">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">زنگوله</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">تایید</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+
+<script>
+    $(document)
+        .ready(function() {
+            //$("#contactBtn").mousedown(function () {
+            //    $(this).hide();
+            //});
+
+            $('#contactBtn')
+                .click(function() {
+
+                    if ($('#name').val() == "") {
+
+                        $("#myModal").find(".modal-title").removeClass("text-success");
+                        $("#myModal").find(".modal-title").addClass("text-warning");
+                        $("#myModal").find(".modal-body").html("اطلاعات را کامل وارد نمایید.");
+                        $("#myModal").modal();
+                        return;
+
+                    }
+
+                    $("#myModal").find(".modal-title").removeClass("text-warning");
+                    $("#myModal").find(".modal-title").addClass("text-success");
+                    $("#myModal").find(".modal-body").html("پیام شما ارسال شد");
+
+                    setTimeout(
+                        function() {
+
+                            $("#myModal").modal();
+
+                            var $inputs = $('#contact-form :input');
+                            $inputs.each(function() {
+                                if (this.name != "contactBtn") {
+                                    $(this).val("");
+                                }
+                            });
+                            $("#contactBtn").val("ارسال");
+                        },
+                        1500);
+
+                });
+
+        });
+</script>

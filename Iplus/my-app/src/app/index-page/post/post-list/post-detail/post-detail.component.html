@@ -1,0 +1,66 @@
+
+<mat-toolbar color="basic" class="mat-toolbar-class">
+  <!--<mat-toolbar-row> -->
+  <button mat-stroked-button matTooltip="بازگشت" matTooltipShowDelay="700" color="primary" (click)="backClicked()">
+    <mat-icon class="example-icon">arrow_forward</mat-icon>
+  </button>
+
+  <!--<button mat-stroked-button matTooltip="درخواست سخنران" matTooltipShowDelay="700" color="primary" (click)="showRequestForm()" >
+    <mat-icon class="example-icon">assignment_turned_in</mat-icon>درخواست سخنران
+  </button>-->
+
+  <!--<button mat-stroked-button matTooltip="ویرایش" matTooltipShowDelay="700" color="primary" (click)="openDialog(false)"><mat-icon class="example-icon">edit</mat-icon></button>
+  <button mat-stroked-button matTooltip="حذف" matTooltipShowDelay="700" color="warn" (click)="deleteRecords()"><mat-icon class="example-icon">delete</mat-icon></button>
+  <button mat-stroked-button matTooltip="بازآوری اطلاعات" matTooltipShowDelay="700" color="primary" (click)="getDataTable()"><mat-icon class="example-icon">refresh</mat-icon></button>-->
+
+  <!-- </mat-toolbar-row> -->
+</mat-toolbar>
+
+<!--<div mat-dialog-actions>
+  <button mat-raised-button [mat-dialog-close]="speakerInfo" cdkFocusInitial><mat-icon color="primary" class="example-icon">save</mat-icon>ذخیره</button>
+  <button mat-raised-button [routerLink]="['/']" (click)="onNoClick()"><mat-icon color="primary" class="example-icon">cancel</mat-icon>لغو</button>
+</div>-->
+
+<div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-evenly center" fxLayoutAlign.sm="space-evenly stretch" fxLayoutAlign.xs="space-evenly stretch" >
+
+  <!--<div class="main-div" fxLayout="row wrap" fxLayoutAlign="space-evenly none">-->
+    <div class="card-item">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <!--<mat-card-title>{{postInfo.Title}}</mat-card-title>-->
+        </mat-card-header>
+        <img mat-card-image [src]="(postInfo.ImageUrl? postInfo.ImageUrl : '/Content/Images/TheSpeakerImages/personelIcon.png')" />
+        <mat-card-content>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  <!--</div>-->
+
+
+  <mat-accordion class="example-headers-align" fxFlex >
+
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{postInfo.Title}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="text-content" [innerHTML]="postInfo.Summary">
+        </div>
+        <div class="text-content" [innerHTML]="postInfo.Text">
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+  </mat-accordion>
+
+</div>
+
+<!--<section class="example-section">
+  <mat-progress-bar
+    class="example-margin"
+    color="primary"
+    mode="indeterminate"
+    value="50"
+    bufferValue="75">
+  </mat-progress-bar>
+</section>-->

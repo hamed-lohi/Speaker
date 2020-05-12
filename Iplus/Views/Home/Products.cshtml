@@ -1,0 +1,197 @@
+﻿
+@{
+    ViewBag.Title = "محصولات";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+
+<div class="panel-group">
+    <div class="panel panel-success">
+        <div class="panel-body">
+            
+            <h3 class="aqua text-center">
+                <button id="btnBag" type="button" class="btn btn-success" style="float: left" data-toggle="modal" data-target="#myModal"><img src="~/Content/Images/ShoppingBag.png" /> سبد خرید <span id="lblShoppCount" class="badge">0</span></button>
+                محصولات
+            </h3>
+
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            
+            <div class="row">
+
+                <div class="col-sm-6 col-md-4 productsItem" style="float: right;">
+                    <div class="thumbnail">
+                        <img src="~/Content/Images/billboard.png" alt="" />
+                        <div class="caption">
+                            <h4 class="aqua">بیلبورد خانه</h4>
+                            <p class="itemBody" style="font-weight: 400; font-size: small;">
+                                آگهی شما بلافاصله پس از خرید این محصول، بمدت 8 ساعت در قابی به اندازه بیلبورد صفحه اصلی ( خانه ) بزرگتر، بهتر و بیشتر دیده میشود و اولین چیزی که با ورود کاربران به برنامه، جلب توجه میکند آگهی شماست و این یعنی درصد بالای موفقیت و زودتر به نتیجه رسیدن آگهی شما در میان سایر آگهی ها
+                            </p>
+                            <br /><h6 class="bg-success text-success">5000 تومان</h6>
+                            <p>
+                                <a style="padding-right: 5px;" class="btn btn-success" onclick="addToBag(this);" role="button"><span class="glyphicon glyphicon-plus" style="margin-left:5px;"></span>افزودن به سبد</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-6 col-md-4 productsItem" style="float: right;">
+                    <div class="thumbnail">
+                        <img src="~/Content/Images/billboard.png" alt="" />
+                        <div class="caption">
+                            <h4 class="aqua">بیلبورد دسته </h4>
+                            <p class="itemBody" style="font-weight: 400; font-size: small;">
+                                آگهی شما بلافاصله پس از خرید این محصول، بمدت 8 ساعت در قابی به اندازه بیلبورد داخل یکی از 10 دسته بندی اصلی بزرگتر، بهتر و بیشتر دیده میشود و اولین چیزی که با ورود کاربران به یکی از 10 دسته بندی اصلی، جلب توجه میکند آگهی شماست و این یعنی درصد بالای موفقیت و زودتر به نتیجه رسیدن آگهی شما در میان سایر آگهی ها
+                            </p>
+                            <br /><h6 class="bg-success text-success">3000 تومان</h6>
+                            <p>
+                                <a style="padding-right: 5px;" class="btn btn-success" onclick="addToBag(this);" role="button"><span class="glyphicon glyphicon-plus" style="margin-left:5px;"></span>افزودن به سبد</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 productsItem" style="float: right;">
+                    <div class="thumbnail">
+                        <img src="~/Content/Images/diamond.png" />
+                        <div class="caption">
+                            <h4 class="aqua">نگین</h4>
+                            <p class="itemBody" style="font-weight: 400; font-size: small;">
+                                با خرید این محصول، آگهی شما در لیست آگهی ها بطور برجسته نمایش داده میشود. این کار باعث میشود تا کاربران هنگام مشاهده لیست آگهی ها، آگهی شما را بهتر، بیشتر و متمایز تر از سایر آگهی ها ببینند و شما بازخورد بهتری از ارسال آگهی خود در زنگوله مشاهده نمایید.
+                            </p>
+                            <br /><h6 class="bg-success text-success">1000 تومان</h6>
+                            <p>
+                                <a style="padding-right: 5px;" class="btn btn-success" onclick="addToBag(this);" role="button"><span class="glyphicon glyphicon-plus" style="margin-left:5px;"></span>افزودن به سبد</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+
+                <div class="col-sm-6 col-md-4 productsItem" style="float: right;">
+                    <div class="thumbnail">
+                        <img src="~/Content/Images/balloon.png" />
+                        <div class="caption">
+                            <h4 class="aqua">بالون</h4>
+                            <p class="itemBody" style="font-weight: 400; font-size: small;">
+                                آگهی شما بلافاصله پس از خرید این محصول، سوار بر بالون به بالای لیست آگهی ها رفته و به عنوان اولین آگهی در لیست آگهی ها نمایش داده میشود و این بیشترین شانس برای دیده شدن آگهی شماست.
+                            </p>
+                            <br /><h6 class="bg-success text-success">1000 تومان</h6>
+                            <p>
+                                <a style="padding-right: 5px;" class="btn btn-success" onclick="addToBag(this);" role="button"><span class="glyphicon glyphicon-plus"style="margin-left:5px;"></span>افزودن به سبد</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 productsItem" style="float: right;">
+                    <div class="thumbnail">
+                        <img src="~/Content/Images/bell.png" />
+                        <div class="caption">
+                            <h4 class="aqua">ناقوس</h4>
+                            <p class="itemBody" style="font-weight: 400; font-size: small;">
+                                برای استفاده از این محصول شما باید ابتدا یکی از دسته های دلخواه خود را انتخاب کنید. پس از انتخاب دسته و خرید این محصول به محض ارسال آگهی های مربوط به آن دسته توسط کاربران و تایید توسط زنگوله، برای هر آگهی یک نوتفیکیشن به گوشی شما ارسال خواهد شد که حاوی عنوان و جزئیات آگهی مربوط به دسته بندی انتخابی شماست. بعنوان مثال با انتخاب دسته پراید و هر کدام از فیلترهای آن مثل سال تولید: 92، همه آگهی های مربوط به پراید 92 به محض انتشار به گوشی شما ارسال خواهد شد. این کار باعث میشود علاوه بر صرفه جویی در زمان، شما بدون استفاده از زنگوله و یا جستجوی آگهی در آن، آگهی های دلخواه خود را در زمان دلخواه در گوشی خود مشاهده نمایید.
+                            </p>
+                            <br /><h6 class="bg-success text-success">2000 تومان</h6>
+                            <p>
+                                <a style="padding-right: 5px;" class="btn btn-success" onclick="addToBag(this);" role="button"><span class="glyphicon glyphicon-plus" style="margin-left:5px;"></span>افزودن به سبد</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<br/>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"> سبد خرید </h4>
+            </div>
+            <div class="modal-body">
+                
+                
+                <div style="clear: both;"></div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnColse" type="button" class="btn btn-danger btn-sm" data-dismiss="modal">بستن</button>
+                <button id="btnCancel" type="button" class="btn btn-warning btn-sm" data-dismiss="modal">انصراف</button>
+                <button id="btnPayment" type="button" class="btn btn-success btn-sm" data-dismiss="modal">پرداخت</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#btnCancel').click(function() {
+                //if ($('#name').val() == "") {
+
+                //    $("#myModal").find(".modal-title").removeClass("text-success");
+                //    $("#myModal").find(".modal-title").addClass("text-warning");
+            $("#myModal").find(".modal-body").html('<div style="clear: both;"></div>');
+                $("#lblShoppCount").html("0");
+                //$("#myModal").modal();
+                //return;
+        });
+
+        $('#btnPayment').click(function () {
+            alert("عدم اتصال به درگاه پرداخت !");
+        });
+
+
+        //    $("#myModal").find(".modal-title").removeClass("text-warning");
+        //    $("#myModal").find(".modal-title").addClass("text-success");
+        //    $("#myModal").find(".modal-body").html("شکایت شما ارسال شد");
+
+        //    setTimeout(
+        //        function() {
+
+        //            $("#myModal").modal();
+
+        //            var $inputs = $('#contact-form :input');
+        //            $inputs.each(function () {
+        //                if (this.name != "contactBtn") {
+        //                    $(this).val("");
+        //                }
+        //            });
+        //            $("#contactBtn").val("ارسال");
+
+        //        },
+        //        1500);
+
+        //});
+
+    });
+
+    function addToBag(btn) {
+
+        var item = $(btn).closest(".productsItem").clone();
+        item.find(".itemBody").remove();
+        item.find(".btn-success").remove();
+
+        $("#myModal .modal-body").prepend(item);
+        var shopCount = $("#lblShoppCount").html();
+        $("#lblShoppCount").html(parseInt(shopCount) + 1);
+        return;
+    }
+
+</script>

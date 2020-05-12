@@ -1,0 +1,289 @@
+<a style="display:none;" routerLink="/index-page/the-speaker/0">
+  خدمات فرهنگی
+</a>
+
+<a style="display:none" routerLink="/register">
+  عضویت
+</a>
+
+<a style="display:none" routerLink="/login">
+  ورود
+</a>
+
+<ng-container *ngIf="shouldRun">
+  <mat-toolbar class="example-header" fxLayout="row wrap">
+
+    <a style="min-width: 167px;" mat-button matTooltip="رحیل بیان" matTooltipShowDelay="500">
+      <img style="height: 60px;" src="assets/Image/logo.png" />
+      <span class="logo-sub-title">سامانه خدمات فرهنگی</span>
+    </a>
+
+    <mat-toolbar-row fxFlex fxHide="false" fxShow.sm="false" fxShow.xs="false">
+
+
+
+      <div>
+
+
+
+        <button mat-stroked-button matTooltip="پنل مدیریت سایت" matTooltipShowDelay="500" color="accent" routerLink="/admin-panel" *ngIf="showAdminPanelBtn()">
+          <mat-icon>build</mat-icon>
+        </button>
+        <a mat-stroked-button color="primary" routerLink="/index-page/main-page" [class.selected]="getIsCurrentCategory('/index-page/main-page')">صفحه اصلی</a>
+
+        <button mat-stroked-button color="primary" [matMenuTriggerFor]="thespeaker" [class.selected]="getIsCurrentCategory('/index-page/the-speaker')" routerLink="xx">
+          <!--[class.selected]="getIsCurrentCategory('/index-page/the-speaker')"-->
+          <mat-icon>more_vert</mat-icon> <!--[routerLinkActiveOptions]="{exact:true}"-->
+          خدمات فرهنگی
+        </button>
+
+        <mat-menu #thespeaker="matMenu">
+
+          <button mat-menu-item *ngFor="let item of selectListActivityTypes" [routerLinkActive]="['selected']" [routerLink]="'/index-page/the-speaker/'+item.Id">
+            <mat-icon>toc</mat-icon>
+            <span>{{item.Text}}</span>
+          </button>
+
+          
+
+        </mat-menu>
+
+        <a mat-stroked-button color="primary" routerLink="/index-page/the-speaker/request" [class.selected]="getIsCurrentCategory('request')">درخواست خدمات</a>
+        <a mat-stroked-button color="primary" routerLink="/index-page/post" [class.selected]="getIsCurrentCategory('/index-page/post')">اخبار</a>
+        <a mat-stroked-button color="primary" routerLink="/index-page/about" [class.selected]="getIsCurrentCategory('/index-page/about')">در باره ما</a>
+        <a mat-stroked-button color="primary" routerLink="/index-page/contact-us" [class.selected]="getIsCurrentCategory('/index-page/contact-us')">
+          <!--<mat-icon>contact_phone</mat-icon>-->
+          تماس با ما
+        </a>
+      </div>
+    </mat-toolbar-row>
+
+    <!--<a mat-button color="primary" routerLink="/index-page/crisis-center" [class.selected]="getIsCurrentCategory('/index-page/crisis-center')" >Crisis Center</a>
+    <a mat-button color="primary" routerLink="/index-page/superheroes" [class.selected]="getIsCurrentCategory('/index-page/superheroes')" >Heroes</a>
+    <a mat-button color="primary" routerLink="/index-page/admin" [class.selected]="getIsCurrentCategory('/index-page/admin')" >Admin</a>
+    <a mat-button color="primary" routerLink="/index-page/login" [class.selected]="getIsCurrentCategory('/index-page/login')" >Login</a>
+    <a mat-button color="primary" [routerLink]="[{ outlets: { popup: ['compose'] } }]" >Contact</a>-->
+
+    <mat-toolbar-row fxFlex fxLayout="row" fxLayoutAlign="end center">
+      <!--<div class="user-actions-toolbar" >-->
+      <button mat-icon-button fxHide="true" fxShow.sm="true" fxShow.xs="true" (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+
+      <div fxFlex></div>
+
+
+      <ng-container *ngIf="authenticationService.currentUserValue">
+
+        <mat-search-bar matTooltip="جستجو" (onEnter)='searchBoxOnEnter($event)'></mat-search-bar>
+
+        <!--mat-icon-button-->
+        <button mat-stroked-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+          {{authenticationService.currentUserValue.FullName}}
+        </button>
+        <mat-menu #menu="matMenu">
+
+          <!--<button mat-menu-item>
+            <mat-icon>dialpad</mat-icon>
+            <span>Redial</span>
+          </button>
+          <button mat-menu-item disabled>
+            <mat-icon>voicemail</mat-icon>
+            <span>Check voicemail</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>notifications_off</mat-icon>
+            <span>Disable alerts</span>
+          </button>-->
+
+
+          <button mat-menu-item routerLink="/index-page/account/19">
+            <mat-icon>assignment_turned_in</mat-icon>
+            <span>پروفایل من</span>
+          </button>
+
+          <button mat-menu-item routerLink="/index-page/account/20">
+            <mat-icon>vpn_key</mat-icon>
+            <span>تغییر کلمه عبور</span>
+          </button>
+
+          <button mat-menu-item (click)="logout()">
+            <mat-icon color="warn">power_settings_new</mat-icon>
+            <span>خروج از حساب کاربری</span>
+          </button>
+
+          <!--<a mat-stroked-button matTooltip="خروج از حساب کاربری" matTooltipShowDelay="500" color="warn" (click)="logout()">
+            <mat-icon>power_settings_new</mat-icon>
+            <span>خروج از حساب کاربری</span>
+          </a>-->
+
+        </mat-menu>
+
+
+        <!--<button mat-stroked-button routerLink="/index-page/account" [class.selected]="getIsCurrentCategory('/index-page/account')">
+          <mat-icon>perm_identity</mat-icon>{{authenticationService.currentUserValue.FullName}}
+        </button>-->
+
+      </ng-container>
+
+      <ng-container *ngIf="!authenticationService.currentUserValue">
+
+        <mat-search-bar matTooltip="جستجو" (onEnter)='searchBoxOnEnter($event)'></mat-search-bar>
+
+        <button mat-stroked-button matTooltip="عضویت" matTooltipShowDelay="500" color="primary" routerLink="/register">
+          <mat-icon>people</mat-icon>
+          عضویت
+        </button>
+
+        <button mat-stroked-button matTooltip="ورود" matTooltipShowDelay="500" color="primary" routerLink="/login">
+          <mat-icon>perm_identity</mat-icon>
+          ورود
+        </button>
+        
+      </ng-container>
+
+      <!--</div>-->
+
+    </mat-toolbar-row>
+
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="over" opened="false" class="example-sidenav"
+                 [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top"
+                 [fixedBottomGap]="options.value.bottom">
+
+      <button mat-raised-button matTooltip="پنل مدیریت سایت" matTooltipShowDelay="500" color="accent" routerLink="/admin-panel" *ngIf="showAdminPanelBtn()">
+        <mat-icon>build</mat-icon>
+      </button>
+      <a mat-raised-button color="primary" routerLink="/index-page/main-page" [class.selected]="getIsCurrentCategory('/index-page/main-page')" (click)="sidenav.toggle()">صفحه اصلی</a>
+
+      <!--<a mat-raised-button color="primary" routerLink="/index-page/the-speaker" [class.selected]="getIsCurrentCategory('/index-page/the-speaker')" (click)="sidenav.toggle()">
+        خدمات فرهنگی
+      </a>-->
+
+      <button mat-raised-button color="primary" [matMenuTriggerFor]="thespeaker2" [class.selected]="getIsCurrentCategory('/index-page/the-speaker')"  routerLink="xx" >
+        <!--[class.selected]="getIsCurrentCategory('/index-page/the-speaker')"-->
+        <mat-icon>more_vert</mat-icon> <!--[routerLinkActiveOptions]="{exact:true}"-->
+        خدمات فرهنگی
+      </button>
+      <mat-menu #thespeaker2="matMenu">
+
+        <button mat-menu-item *ngFor="let item of selectListActivityTypes" [routerLinkActive]="['selected']" [routerLink]="'/index-page/the-speaker/'+item.Id" (click)="sidenav.toggle()">
+          <!--queryParamsHandling="merge" [queryParams]="{ activityTypeId: '301' }" [class.selected]="getIsCurrentCategory('request')"-->
+          <mat-icon>toc</mat-icon>
+          <span>{{item.Text}}</span>
+        </button>
+      </mat-menu>
+
+      <a mat-raised-button color="primary" routerLink="/index-page/the-speaker/request" [routerLinkActive]="['selected']"  (click)="sidenav.toggle()">درخواست خدمات</a>
+      <a mat-raised-button color="primary" routerLink="/index-page/post" [class.selected]="getIsCurrentCategory('/index-page/post')" (click)="sidenav.toggle()">اخبار</a>
+      <a mat-raised-button color="primary" routerLink="/index-page/about" [class.selected]="getIsCurrentCategory('/index-page/about')" (click)="sidenav.toggle()">در باره ما</a>
+      <a mat-raised-button color="primary" routerLink="/index-page/contact-us" [class.selected]="getIsCurrentCategory('/index-page/contact-us')" (click)="sidenav.toggle()">
+        <!--<mat-icon>contact_phone</mat-icon>-->
+        تماس با ما
+      </a>
+
+      <!--{{options.value.fixed ? 'Fixed' : 'Non-fixed'}} Sidenav-->
+      <!--<a mat-stroked-button routerLink="/index-page/the-speaker" [class.selected]="getIsCurrentCategory('/index-page/the-speaker')" >سخنرانان</a>
+      <a mat-stroked-button routerLink="/index-page/crisis-center" [class.selected]="getIsCurrentCategory('/index-page/crisis-center')" > Crisis Center</a>
+      <a mat-stroked-button routerLink="/index-page/superheroes" [class.selected]="getIsCurrentCategory('/index-page/superheroes')" >Heroes</a>
+      <a mat-stroked-button routerLink="/index-page/admin" [class.selected]="getIsCurrentCategory('/index-page/admin')" >Admin</a>
+      <a mat-stroked-button routerLink="/index-page/login" [class.selected]="getIsCurrentCategory('/index-page/login')" >Login</a>
+      <a mat-stroked-button [routerLink]="[{ outlets: { popup: ['compose'] } }]" >Contact</a>-->
+
+    </mat-sidenav>
+
+    <mat-sidenav-content [formGroup]="options">
+      <!--<p><mat-checkbox formControlName="fixed">Fixed</mat-checkbox></p>
+      <p>
+        <mat-form-field>
+          <input matInput type="number" formControlName="top" placeholder="Top gap">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input matInput type="number" formControlName="bottom" placeholder="Bottom gap">
+        </mat-form-field>
+      </p>
+
+      <router-outlet></router-outlet>-->
+
+      <div [@routeAnimation]="getAnimationData(routerOutlet)">
+        <router-outlet #routerOutlet="outlet"></router-outlet>
+      </div>
+
+      <!--<router-outlet name="popup"></router-outlet>-->
+
+      <div style="clear: both"></div>
+      <footer class="example-footer" fxLayout="row" fxLayoutAlign="space-between center">
+
+        <!--<a style="margin-top: 20px" mat-button matTooltip="رحیل بیان" matTooltipShowDelay="500">
+          <img style="height: 80px;" src="../../ng/assets/Image/logo.png" />
+          <span class="logo-sub-title">سامانه اعزام سخنران</span>
+        </a>-->
+
+        <mat-card class="example-card-footer">
+          <!--<mat-card-header>
+            <mat-card-title><span style="font-weight: bold">ارتباط با ما</span></mat-card-title>
+            <mat-card-subtitle>____________</mat-card-subtitle>
+          </mat-card-header>-->
+          <img style="height: 80px;" src="assets/Image/logo.png" />
+          <mat-card-content>
+            <span class="logo-sub-title">سامانه خدمات فرهنگی</span>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="example-card-footer" fxShow="true" fxShow.xs="false">
+          <mat-card-header>
+            <mat-card-title><span style="font-weight: bold">ارتباط با ما</span></mat-card-title>
+            <!--<mat-card-subtitle>____________</mat-card-subtitle>-->
+          </mat-card-header>
+          <mat-card-content>
+
+            تبریز، خیابان آزادی، چهارراه شهید منتظری (مارالان)،
+            روبروی بانک صادرات، بن بست رازی، پلاک 5
+
+            <p>
+              041-35430561
+            </p>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="example-card-footer">
+          <mat-card-header>
+            <mat-card-title><span style="font-weight: bold">در باره ما</span></mat-card-title>
+            <!--<mat-card-subtitle>____________</mat-card-subtitle>-->
+          </mat-card-header>
+          <mat-card-content>
+
+            شبکه اعزام سخنران و استاد رحیل بیان مجموعه ای فرهنگی-تبلیغی است که جهت پر کردن بخشی از خلاء جبهه فرهنگی انقلاب اسلامی استان آذربایجان شرقی راه اندازی شده است.
+
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="example-card-footer ltr-acc">
+          <mat-card-header>
+            <mat-card-title>
+              <span style="font-weight: bold">لینک های مرتبط</span>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <a mat-button target="_blank" style="color: #0ac6ff;" href="https://telegram.me/GharargahfarhangiAZ"><img src="assets/Image/icons8-telegram-app-48.png" />@GharargahfarhangiAZ</a>
+            <a mat-button target="_blank" style="color: #0ac6ff;" href="https://www.instagram.com/GhfarhangiAZ"><img src="assets/Image/icons8-instagram-48.png" />@GhfarhangiAZ</a>
+          </mat-card-content>
+        </mat-card>
+
+        <!--<mat-toolbar class="example-footer">
+        <!--<mat-toolbar-row></mat-toolbar-row>
+        <mat-toolbar-row></mat-toolbar-row>
+        <mat-toolbar-row></mat-toolbar-row>
+        <!-- This fills the remaining space of the current row
+        <span class="example-fill-remaining-space"></span>
+        </mat-toolbar>-->
+      </footer>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-container>
+
+<!--<div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>-->

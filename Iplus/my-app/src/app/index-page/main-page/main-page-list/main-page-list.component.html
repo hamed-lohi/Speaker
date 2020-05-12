@@ -1,0 +1,90 @@
+
+<app-slider></app-slider>
+
+<div class="main-div" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-evenly none">
+
+  <!--<mat-grid-list cols="4" rowHeight="100px" gutterSize="10px">
+    <mat-grid-tile
+      *ngFor="let tile of tiles"
+      [colspan]="tile.cols"
+      [rowspan]="tile.rows"
+      [style.background]="tile.color">
+      {{tile.text}}
+    </mat-grid-tile>
+  </mat-grid-list>-->
+  <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="space-evenly stretch">
+    <div style="max-width: 350px;">
+      <mat-card class="example-card">
+        <mat-card-header style="color: deepskyblue;">
+          <!--<div mat-card-avatar class="example-header-image"></div>-->
+          <div mat-card-avatar> <mat-icon style="font-size: 32px; font-weight: bold;">person_add</mat-icon></div>
+          <mat-card-title>اعلام همکاری</mat-card-title>
+          <!--<mat-card-subtitle>ثبت سخنران</mat-card-subtitle>-->
+        </mat-card-header>
+        <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+        <mat-card-content>
+          <p>
+            در صورتی که میخواهید به جمع همکاران ما بپیوندید میتوانید
+            <strong *ngIf="!authenticationService.currentUserValue">
+              پس از
+              <a style="text-decoration: none; font-size: 14px; color: #007eff;" routerLink="/register"> عضویت </a>
+              و
+              <a style="text-decoration: none; font-size: 14px; color: #007eff;" routerLink="/login"> ورود </a>
+            </strong>
+            از طریق کلیک بر روی دکمه زیر رزومه و مشخصات خود را برای ما ارسال نمایید. جهت هماهنگی های بعدی در اسرع وقت با شما تماس گرفته خواهد شد.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <!--<button mat-button mat-raised-button color="primary">ثبت سخنران</button>-->
+
+          <button mat-raised-button color="accent" matTooltip="اعلام همکاری" matTooltipShowDelay="700" (click)="openDialog(true)">
+            <mat-icon class="example-icon">person_add</mat-icon> اعلام همکاری
+          </button>
+
+          <!--<button mat-button>SHARE</button>-->
+        </mat-card-actions>
+      </mat-card>
+
+    </div>
+    <div style="max-width: 350px;">
+
+      <mat-card class="example-card">
+        <mat-card-header style="color: deepskyblue;">
+          <!--<div mat-card-avatar class="example-header-image"></div>-->
+          <div mat-card-avatar> <mat-icon style="font-size: 32px; font-weight: bold;">assignment_ind</mat-icon></div>
+          <mat-card-title>درخواست خدمات</mat-card-title>
+          <!--<mat-card-subtitle>درخواست سخنران</mat-card-subtitle>-->
+        </mat-card-header>
+        <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+        <mat-card-content>
+          <p>
+            جهت استفاده از خدمات سایت، ابتدا باید فرم موجود در دکمه زیر را
+            <strong *ngIf="!authenticationService.currentUserValue">
+              پس از
+              <a style="text-decoration: none; font-size: 14px; color: #007eff;" routerLink="/register"> عضویت </a>
+              و
+              <a style="text-decoration: none; font-size: 14px; color: #007eff;" routerLink="/login"> ورود </a>
+            </strong>
+            تکمیل نمایید. درخواست ارسالی پس از امکان سنجی و بررسی در کوتاهترین زمان ممکن پاسخ داده شده و با شما تماس خواهیم گرفت.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+
+          <button mat-raised-button color="accent" matTooltip="درخواست خدمات" matTooltipShowDelay="700" (click)="showRequestForm()">
+            <mat-icon class="example-icon">assignment_turned_in</mat-icon>درخواست خدمات
+          </button>
+
+          <!--<button mat-button mat-stroked-button mat-raised-button color="primary">درخواست سخنران</button>-->
+        </mat-card-actions>
+      </mat-card>
+
+    </div>
+
+  </div>
+
+  <!--<app-posts fxFlex="100"></app-posts>-->
+  <!--<app-top-speakers fxFlex="100"></app-top-speakers>-->
+  <app-top-carousel fxFlex="100"></app-top-carousel>
+  
+
+</div>

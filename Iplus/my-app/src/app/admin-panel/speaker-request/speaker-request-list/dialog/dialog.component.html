@@ -1,0 +1,118 @@
+
+<!--<h1 mat-dialog-title>
+  <img [src]="(data.ImageUrl? data.ImageUrl : '/Content/Images/TheSpeakerImages/personelIcon.png')" width="60" height="60" />
+
+</h1>-->
+
+<div fxLayout="row wrap" fxLayoutAlign="space-around start" >
+
+  <mat-form-field >
+    <input matInput placeholder="نام مجموعه یا موسسه درخواست دهنده" [(ngModel)]="data.CompanyName" required>
+  </mat-form-field>
+  <mat-form-field >
+    <input matInput placeholder="نوع فعالیت مجموعه یا موسسه" [(ngModel)]="data.ActivityType" required>
+  </mat-form-field>
+  <mat-form-field >
+    <input matInput placeholder="فعالیت شاخص انجام شده توسط موسسه" [(ngModel)]="data.IndicatorActivity" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="موضوع دقیق سخنرانی" [(ngModel)]="data.ExactSubject" required>
+    <mat-hint>مثال: سیاست های جدید آمریکا در مواجه با برجام</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="تاریخ و زمان درخواست سخنرانی" [(ngModel)]="data.SpeakDate" required>
+    <mat-icon matSuffix>date_range</mat-icon>
+    <mat-hint>مثال: 25/8/1395 ساعت 14 تا 16</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="نوع فعالیت" [(ngModel)]="data.SSActivityId" (ngModelChange)="fillDependSelect()" required> <!--(selectionChange)=""-->
+      <mat-option *ngFor="let item of selectListActivityTypes" [value]="item.Id">
+        {{item.Text}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="زمینه فعالیت" [(ngModel)]="data.SSSubject" (ngModelChange)="onChange()" required> <!--onChange($event)-->
+      <mat-option *ngFor="let item of selectListSpeechFields" [value]="item.Id">
+        {{item.Text}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="سخنران" [(ngModel)]="data.SpeakerId" required>
+      <mat-option *ngFor="let item of selectListSpeakers" [value]="item.Id">
+        {{item.Text}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+ <mat-form-field>
+    <input matInput placeholder="نام مسئول" [(ngModel)]="data.ResponsibleName" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="شماره همراه مسئول" [(ngModel)]="data.ResponsibleMobile" required>
+    <mat-icon matSuffix>smartphone</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="شماره تلفن" [(ngModel)]="data.PhoneNumber" required>
+    <mat-icon matSuffix>phone</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="پست الکترونیکی" [(ngModel)]="data.Email" required>
+    <mat-icon matSuffix>email</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="آدرس سایت اینترنتی" [(ngModel)]="data.SiteUrl" >
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="شهر" [(value)]="data.CityId" required>
+      <mat-option>--انتخاب کنید--</mat-option>
+      <mat-option *ngFor="let city of selectListCity" [value]="city.Id">
+        {{city.Text}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field fxFlex="100">
+    <input matInput placeholder="آدرس" [(ngModel)]="data.Adress" required>
+  </mat-form-field>
+
+  <!--<mat-form-field>
+    <input matInput placeholder="کد همکاری" [(ngModel)]="data.CooperationCode" >
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="number" placeholder="اولویت" [(ngModel)]="data.Priority">
+  </mat-form-field>-->
+  
+  <mat-form-field fxFlex="100">
+    <textarea matInput placeholder="توضیحات" [(ngModel)]="data.Description"></textarea>
+  </mat-form-field>
+
+</div>
+
+<!--<section class="example-section">
+  <mat-progress-bar
+    class="example-margin"
+    color="primary"
+    mode="indeterminate"
+    value="50"
+    bufferValue="75">
+  </mat-progress-bar>
+</section>-->
+
+
+<div mat-dialog-actions>
+  <button mat-raised-button [mat-dialog-close]="data" cdkFocusInitial><mat-icon color="primary" class="example-icon">save</mat-icon>ذخیره</button>
+  <button mat-raised-button (click)="onNoClick()"><mat-icon color="primary" class="example-icon">cancel</mat-icon>لغو</button>
+</div>

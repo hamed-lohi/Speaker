@@ -1,0 +1,194 @@
+
+<mat-toolbar color="basic" class="mat-toolbar-class">
+  <!--<mat-toolbar-row> -->
+  <button mat-stroked-button matTooltip="بازگشت" matTooltipShowDelay="700" color="primary" (click)="backClicked()">
+    <mat-icon class="example-icon">arrow_forward</mat-icon>
+  </button>
+
+  <button mat-stroked-button matTooltip="درخواست خدمت" matTooltipShowDelay="700" color="primary" (click)="showRequestForm()" >
+    <mat-icon class="example-icon">assignment_turned_in</mat-icon>درخواست خدمت
+  </button>
+
+  <!--<button mat-stroked-button matTooltip="ویرایش" matTooltipShowDelay="700" color="primary" (click)="openDialog(false)"><mat-icon class="example-icon">edit</mat-icon></button>
+  <button mat-stroked-button matTooltip="حذف" matTooltipShowDelay="700" color="warn" (click)="deleteRecords()"><mat-icon class="example-icon">delete</mat-icon></button>
+  <button mat-stroked-button matTooltip="بازآوری اطلاعات" matTooltipShowDelay="700" color="primary" (click)="getDataTable()"><mat-icon class="example-icon">refresh</mat-icon></button>-->
+
+  <!-- </mat-toolbar-row> -->
+</mat-toolbar>
+
+<!--<div mat-dialog-actions>
+  <button mat-raised-button [mat-dialog-close]="speakerInfo" cdkFocusInitial><mat-icon color="primary" class="example-icon">save</mat-icon>ذخیره</button>
+  <button mat-raised-button [routerLink]="['/']" (click)="onNoClick()"><mat-icon color="primary" class="example-icon">cancel</mat-icon>لغو</button>
+</div>-->
+
+<div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-evenly center" fxLayoutAlign.sm="space-evenly stretch" fxLayoutAlign.xs="space-evenly stretch" >
+
+  <!--<div class="main-div" fxLayout="row wrap" fxLayoutAlign="space-evenly none">-->
+    <div class="card-item">
+      <mat-card class="example-card">
+        <mat-card-header  class="example-speaker-list">
+          <!--<div mat-card-avatar class="example-header-image">-->
+          <!--</div>-->
+          <!--<div mat-card-avatar> <mat-icon style="color: deepskyblue; font-size: 32px; font-weight: bold;">assignment_ind</mat-icon></div>-->
+          <mat-card-title *ngIf="speakerInfo.SSActivityId == 306">{{speakerInfo.GroupName}}</mat-card-title>
+          <mat-card-title *ngIf="speakerInfo.SSActivityId != 306">{{speakerInfo.FName +"  "+ speakerInfo.LName}}</mat-card-title>
+          <mat-card-subtitle>{{speakerInfo.CityName}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+        <img mat-card-image [src]="(speakerInfo.ImageUrl? speakerInfo.ImageUrl : '/Content/Images/TheSpeakerImages/personelIcon.png')" />
+        <mat-card-content>
+          <!--<p>{{speakerInfo.TblSpeechFieldNames}}</p>-->
+          <mat-chip-list>
+            <mat-chip *ngFor="let item of speakerInfo.TblSpeechFieldNames">{{item}}</mat-chip>
+          </mat-chip-list>
+        </mat-card-content>
+        <!--<mat-card-actions>
+          <button mat-button mat-raised-button color="primary">درخواست سخنران</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>-->
+      </mat-card>
+    </div>
+  <!--</div>-->
+
+
+  <mat-accordion class="example-headers-align" fxFlex >
+
+    <mat-expansion-panel *ngIf="speakerInfo.EducationDescription && speakerInfo.SSActivityId!=306">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon color="primary">school</mat-icon> 
+          سوابق تحصیلی رسمی و غیر رسمی
+        </mat-panel-title>
+        <!--<mat-panel-description>
+          شرح مختصر و سوابق تحصیلی
+          <mat-icon color="primary">school</mat-icon>
+        </mat-panel-description>-->
+      </mat-expansion-panel-header>
+
+      <div class="text-content" [innerHTML]="speakerInfo.EducationDescription">
+      </div>
+
+    </mat-expansion-panel>
+
+    <mat-expansion-panel *ngIf="speakerInfo.ActivityDescription && speakerInfo.SSActivityId!=301">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon color="primary">perm_contact_calendar</mat-icon> 
+          سوابق فعالیت
+        </mat-panel-title>
+        <!--<mat-panel-description>
+        شرح مختصر و سوابق تحصیلی
+        <mat-icon color="primary">school</mat-icon>
+      </mat-panel-description>-->
+      </mat-expansion-panel-header>
+
+      <div class="text-content" [innerHTML]="speakerInfo.ActivityDescription">
+      </div>
+
+    </mat-expansion-panel>
+
+    <mat-expansion-panel *ngIf="speakerInfo.SSActivityId==301">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon color="primary">person</mat-icon> 
+          سوابق و موضوعات تدریس
+        </mat-panel-title>
+        <!--<mat-panel-description>
+          سوابق تدریس و سخنرانی
+          <mat-icon color="primary">person</mat-icon>
+        </mat-panel-description>-->
+      </mat-expansion-panel-header>
+
+      <div class="text-content" [innerHTML]="speakerInfo.TeachingDescription">
+
+      </div>
+
+    </mat-expansion-panel>
+
+    <mat-expansion-panel *ngIf="speakerInfo.RecordsDescription && speakerInfo.SSActivityId!=306" >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon color="primary">assignment_ind</mat-icon>
+          سوابق اجرایی
+        </mat-panel-title>
+        <!--<mat-panel-description>
+          سوابق اجرایی
+          <mat-icon color="primary">assignment_ind</mat-icon>
+        </mat-panel-description>-->
+      </mat-expansion-panel-header>
+
+      <div class="text-content" [innerHTML]="speakerInfo.RecordsDescription">
+      </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel *ngIf="speakerInfo.ResearchDescription && (speakerInfo.SSActivityId==301 || speakerInfo.SSActivityId==302 || speakerInfo.SSActivityId==303)">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon color="primary">library_books</mat-icon>
+          سوابق پژوهش و تالیف
+        </mat-panel-title>
+        <!--<mat-panel-description>
+          سوابق پژوهشی و تالیفی
+          <mat-icon color="primary">library_books</mat-icon>
+        </mat-panel-description>-->
+      </mat-expansion-panel-header>
+
+      <div class="text-content"  [innerHTML]="speakerInfo.ResearchDescription">
+      </div>
+
+      <!--<mat-form-field>
+        <input matInput placeholder="Date" [matDatepicker]="picker" (focus)="picker.open()" readonly>
+      </mat-form-field>
+      <mat-datepicker #picker></mat-datepicker>-->
+      <!--<mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+        <button mat-button color="primary" (click)="nextStep()">End</button>
+      </mat-action-row>-->
+    </mat-expansion-panel>
+
+    <!--<mat-expansion-panel >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon color="primary">streetview</mat-icon>
+          دیدگاه استاد
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="text-content" [innerHTML]="speakerInfo.MasterDescription">
+      </div>
+    </mat-expansion-panel>-->
+
+    <mat-expansion-panel *ngIf="speakerInfo.ResumeUrl && speakerInfo.SSActivityId!=302">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon color="primary">mic</mat-icon>
+          نمونه صوت
+        </mat-panel-title>
+        <!--<mat-panel-description>
+          صوت سخنرانی
+          <mat-icon color="primary">mic</mat-icon>
+        </mat-panel-description>-->
+      </mat-expansion-panel-header>
+
+      <div class="text-content">
+        <video *ngIf="speakerInfo.ResumeUrl" controls>
+          <source [src]="speakerInfo.ResumeUrl">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+    </mat-expansion-panel>
+
+  </mat-accordion>
+
+</div>
+
+<!--<section class="example-section">
+  <mat-progress-bar
+    class="example-margin"
+    color="primary"
+    mode="indeterminate"
+    value="50"
+    bufferValue="75">
+  </mat-progress-bar>
+</section>-->

@@ -1,0 +1,155 @@
+
+<mat-accordion class="example-headers-align">
+
+  <div style="margin: auto;" *ngIf="data.dialogType==0">
+    <!-- تغییر کلمه عبور کاربر -->
+
+    <mat-card class="example-card">
+      <mat-card-content fxLayout="column" fxLayoutAlign="space-evenly stretch">
+
+        <mat-form-field>
+          <input matInput type="password" [type]="hide ? 'password' : 'text'" placeholder="کلمه عبور جدید" [(ngModel)]="data.NewPassword" required>
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="password" [type]="hide ? 'password' : 'text'" placeholder="تکرار کلمه عبور" [(ngModel)]="data.ConfirmPassword" required>
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
+
+      </mat-card-content>
+      <!--<mat-card-actions>
+
+        <button mat-stroked-button matTooltip="ثبت" matTooltipShowDelay="700" color="primary" (click)="changePassword()">
+          <mat-icon class="example-icon">save</mat-icon>ذخیره
+        </button>
+
+      </mat-card-actions>-->
+    </mat-card>
+
+  </div>
+
+
+  <mat-expansion-panel hideToggle expanded="true" *ngIf="data.dialogType==1">
+    <!-- ویرایش اطلاعات کاربر -->
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        اطلاعات استاد
+      </mat-panel-title>
+      <mat-panel-description>
+        اطلاعات سخنران
+        <mat-icon color="primary">account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <h1 mat-dialog-title>
+      <img [src]="(data.ImageUrl? data.ImageUrl : '/Content/Images/TheSpeakerImages/personelIcon.png')" width="60" height="60" />
+      <!--<div class="container">
+      <button md-raised-button color="primary" (click)="fileInput.click()">Upload</button>
+      <input id="ImageUrl" hidden type="file" (change)="onSelectFile($event)" #fileInput>-->
+
+      <button mat-mini-fab color="warn" *ngIf="data.ImageUrl" mat-stroked-button matTooltip="حذف عکس" matTooltipShowDelay="700" color="warn" (click)="deleteImage(data.ImageFileId)">
+        <mat-icon class="example-icon">clear</mat-icon>
+      </button>
+      <!--<input *ngIf="!data.ImageUrl" type='file' (change)="handleFileInput($event.target.files)">-->
+      <input *ngIf="!data.ImageUrl" type='file' id="ImageFileIdField" #ImageFileIdField (change)="handleFileInput(ImageFileIdField, 100)">
+
+      <!--</div>-->
+      <!--<angular-file-uploader
+        [config]="afuConfig"
+        [resetUpload]=resetVar
+        (ApiResponse)="DocUpload($event)">
+      </angular-file-uploader>-->
+
+    </h1>
+
+    <div fxLayout="row wrap" fxLayoutAlign="space-around start">
+
+      <mat-form-field>
+        <input matInput placeholder="نام" [(ngModel)]="data.FName" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="نام خانوادگی" [(ngModel)]="data.LName" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="شماره همراه" [(ngModel)]="data.MobileNumber" required>
+      </mat-form-field>
+
+      <!--<mat-form-field>
+        <input matInput placeholder="دانشگاه" [(ngModel)]="data.University">
+      </mat-form-field>-->
+
+      <mat-form-field>
+        <input matInput placeholder="آخرین مقطع تحصیلی" [(ngModel)]="data.Grade">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="رشته تحصیلی" [(ngModel)]="data.Major">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="زمینه های سخنرانی" [(ngModel)]="data.TblSpeechFieldIds" multiple>
+          <mat-option *ngFor="let item of selectListSpeechFields" [value]="item.Id">
+            {{item.Text}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="شهر" [(value)]="data.CityId">
+          <mat-option>--انتخاب کنید--</mat-option>
+          <mat-option *ngFor="let city of selectListCity" [value]="city.Id">
+            {{city.Text}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <ng-container *ngIf="viewType!=1">
+
+        <mat-form-field>
+          <input matInput type="number" placeholder="اولویت" [(ngModel)]="data.Priority">
+        </mat-form-field>
+
+        <!--<mat-form-field>
+          <textarea matInput placeholder="توضیحات" [(ngModel)]="data.Description"></textarea>
+        </mat-form-field>-->
+
+        <section class="example-section">
+          <mat-checkbox class="example-margin" [(ngModel)]="data.IsApproved" [matTooltip]="data.ApprovedDate" matTooltipPosition="left">نمایش در صفحه اصلی</mat-checkbox>
+        </section>
+
+        <section class="example-section">
+          <mat-checkbox class="example-margin" [(ngModel)]="data.IsPublished" [matTooltip]="data.ApprovedDate" matTooltipPosition="left">انتشار</mat-checkbox>
+        </section>
+
+      </ng-container>
+
+      <!--<mat-form-field>
+        <input matInput placeholder="تاریخ و زمان تایید " [(ngModel)]="data.ApprovedDate">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="تاریخ و زمان انتشار " [(ngModel)]="data.PublishDate">
+      </mat-form-field>-->
+      <!--<mat-action-row>
+        <button mat-button color="primary" (click)="nextStep()">Next</button>
+      </mat-action-row>-->
+    </div>
+
+  </mat-expansion-panel>
+
+</mat-accordion>
+
+
+<!--<section class="example-section">
+  <mat-progress-bar
+    class="example-margin"
+    color="primary"
+    mode="indeterminate"
+    value="50"
+    bufferValue="75">
+  </mat-progress-bar>
+</section>-->
+
+<div mat-dialog-actions>
+  <button mat-raised-button [mat-dialog-close]="data" cdkFocusInitial><mat-icon color="primary" class="example-icon">save</mat-icon>ذخیره</button>
+  <button mat-raised-button (click)="onNoClick()"><mat-icon color="primary" class="example-icon">cancel</mat-icon>لغو</button>
+</div>

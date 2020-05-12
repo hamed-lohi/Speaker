@@ -1,0 +1,25 @@
+<!--<h3>Contact Crisis Center</h3>-->
+
+<div>
+
+  <mat-tab-group [(selectedIndex)]="selectedIndex" headerPosition="below" mat-align-tabs="center" disableRipple='true' animationDuration='1000ms'>
+
+    <mat-tab *ngFor="let slider of sliderList" [label]="slider.Title">
+      <img style="width:100%;" [src]="slider.ImageUrl" />
+    </mat-tab>
+
+    <!--<mat-tab label="First">
+      <img style="width:100%;" src="/ng/assets/16Azar.jpg"/>
+    </mat-tab>
+
+    <mat-tab label="Second">
+      <img style="width:100%;" src="/ng/assets/DownUsa.jpg"/>
+    </mat-tab>
+
+    <mat-tab label="Third">
+      <img style="width:100%;" src="/ng/assets/karkas.jpg"/>
+    </mat-tab>-->
+
+  </mat-tab-group>
+
+</div>

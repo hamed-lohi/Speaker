@@ -1,0 +1,95 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~material-design-icons/iconfont/material-icons.css';
+/*@import '@angular/material/prebuilt-themes/deeppurple-amber.css';*/
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@font-face {
+  font-family: "iransans";
+  font-weight: 200;
+  src: url("assets/fonts/iransans_ultralight.woff") format("woff");
+}
+
+@font-face {
+  font-family: "iransans";
+  font-weight: 500;
+  src: url("assets/fonts/iransans_medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "iransans";
+  font-weight: bold;
+  src: url("assets/fonts/iransans_bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Hayat';
+  src: url("assets/fonts/Hayat.ttf") format("truetype");
+}
+
+/* everywhere else */
+* { 
+  /*font-family: Arial, Helvetica, sans-serif;*/ 
+  font-family: "iransans",Helvetica,Geneva,Verdana,sans-serif;
+  /*color: #ffffff;*/
+}
+
+body {
+  /*background-image: url("img_tree.gif"), url("paper.gif");
+    background-repeat: no-repeat, repeat;
+  */
+ /*background-image: url('assets/Image/paper.gif');
+   background-image: url('assets/Image/background.jpg');
+  background-repeat: repeat;
+  background-color: #cccccc;*/
+
+  background-image: linear-gradient(#215dbac2 6%, #f1f9ff63, #ffffff);
+  background-repeat: no-repeat;
+}
+
+.mat-card-title {
+  font-size: 14px !important;
+}
+
+.mat-card-content,
+.mat-card-subtitle,
+.mat-cell {
+  font-size: 12px !important;
+}
+
+.logo-sub-title {
+  font-family: Hayat;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  vertical-align: bottom !important;
+  text-shadow: -1px -1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000, 1px 1px 1px #000;
+}
+
+.example-icon-add, .example-icon-edit, .example-icon-delete, .example-icon-refresh {
+  /*color: #378cf5;*/
+  font-weight: bold;
+}
+
+.example-icon-add {
+  color: #00a733;
+}
+
+.example-icon-edit {
+  color: #724a02;
+}
+
+.example-icon-delete {
+  color: #eb4141;
+}
+
+.example-icon-refresh {
+  color: #7cd803;
+}
+
+
+.mat-form-field-infix {
+  font-size: 12px;
+}

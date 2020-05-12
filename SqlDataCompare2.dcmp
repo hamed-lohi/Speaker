@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataComparison>
+  <Version>10</Version>
+  <ConnectionProperties1>
+    <ConnectionString>Data Source=.;Initial Catalog=SpeakerDBTest;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True</ConnectionString>
+    <FullDisplayName>..SpeakerDBTest (DESKTOP-RK18SL2\Hamed)</FullDisplayName>
+  </ConnectionProperties1>
+  <ConnectionProperties2>
+    <ConnectionString>Data Source=.;Initial Catalog=SpeakerDB;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True</ConnectionString>
+    <FullDisplayName>..SpeakerDB (DESKTOP-RK18SL2\Hamed)</FullDisplayName>
+  </ConnectionProperties2>
+  <SessionSettings>Default</SessionSettings>
+  <DeselectedTable>[dbo].[__MigrationHistory]</DeselectedTable>
+  <DeselectedTable>[dbo].[iTblFile]</DeselectedTable>
+  <DeselectedTable>[dbo].[iTblSpeaker]</DeselectedTable>
+  <DeselectedTable>[dbo].[iTblSpeechField]</DeselectedTable>
+  <DeselectedTable>[dbo].[iTblUser]</DeselectedTable>
+</DataComparison>

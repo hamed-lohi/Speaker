@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\index-page",
+    "\\src\\app\\index-page\\main-page\\main-page-list",
+    "\\src\\app\\index-page\\main-page\\main-page-list\\top-speakers",
+    "\\src\\app\\index-page\\the-speaker\\the-speaker-list"
+  ],
+  "SelectedNode": "\\src\\index.html",
+  "PreviewInSolutionExplorer": false
+}

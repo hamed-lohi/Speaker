@@ -1,0 +1,49 @@
+
+<div mat-dialog-title>
+  <!--<button mat-button (click)="onNoClick()">بازگشت</button>-->
+
+  <button mat-stroked-button matTooltip="بازگشت" matTooltipShowDelay="700" color="primary" (click)="onNoClick()">
+    <mat-icon class="example-icon">arrow_forward</mat-icon>
+  </button>
+  <!--<br/>-->
+  نتیجه جستجوی
+  ({{data}}) :
+</div>
+
+
+<div fxLayout="column" fxLayoutAlign="space-evenly">
+
+  <div *ngIf="searchResult.length==0"> یافت نشد </div>
+
+  <mat-card fxFlex="80" fxLayout="row" fxLayoutAlign="space-around stretch" class="example-card card-item" *ngFor="let item of searchResult" (click)="showDetail(item)">
+
+
+
+
+    <mat-card fxFlex="17" class="example-card">
+      <!--<mat-card-header>
+        <mat-card-title>{{item.Name}}</mat-card-title>
+      </mat-card-header>-->
+      <img mat-card-image [src]="(item.ImageUrl? item.ImageUrl : '/Content/Images/TheSpeakerImages/personelIcon.png')" />
+      <!--<mat-card-content>
+      </mat-card-content>-->
+    </mat-card>
+
+    <mat-card fxFlex>
+      <mat-card-header>
+        <mat-card-title>{{item.Name}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="text-content">{{item.Activity}}</div>
+      </mat-card-content>
+    </mat-card>
+
+  </mat-card>
+
+</div>
+
+
+<!--<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">بازگشت</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>تایید</button>
+</div>-->

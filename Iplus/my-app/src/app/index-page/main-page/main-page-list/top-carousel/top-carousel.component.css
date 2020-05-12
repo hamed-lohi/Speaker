@@ -1,0 +1,304 @@
+/* CrisisListComponent's private CSS styles */
+.crises {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 24em;
+}
+
+  .crises li {
+    position: relative;
+    cursor: pointer;
+    background-color: #EEE;
+    margin: .5em;
+    padding: .3em 0;
+    height: 1.6em;
+    border-radius: 4px;
+  }
+
+    .crises li:hover {
+      color: #607D8B;
+      background-color: #DDD;
+      left: .1em;
+    }
+
+  .crises a {
+    color: #888;
+    text-decoration: none;
+    display: block;
+  }
+
+    .crises a:hover {
+      color: #607D8B;
+    }
+
+  .crises .badge {
+    display: inline-block;
+    font-size: small;
+    color: white;
+    padding: 0.8em 0.7em 0 0.7em;
+    background-color: #607D8B;
+    line-height: 1em;
+    position: relative;
+    left: -1px;
+    top: -4px;
+    height: 1.8em;
+    min-width: 16px;
+    text-align: right;
+    margin-right: .8em;
+    border-radius: 4px 0 0 4px;
+  }
+
+/*button {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+  font-family: Arial;
+}*/
+
+button:hover {
+  background-color: #cfd8dc;
+}
+
+button.delete {
+  position: relative;
+  left: 194px;
+  top: -32px;
+  background-color: gray !important;
+  color: white;
+}
+
+.crises li.selected {
+  background-color: #CFD8DC;
+  color: white;
+}
+
+  .crises li.selected:hover {
+    background-color: #BBD8DC;
+  }
+
+table {
+  width: 98%;
+  margin: auto;
+  margin: 74px auto;
+}
+
+
+/*.mat-toolbar-class{
+ position: fixed;
+  top: 62px;
+  text-align: center;
+  opacity: 0.9;
+  z-index: 1;
+}*/
+
+.example-card {
+  /*max-width: 100%;*/
+    min-height: 320px;
+  margin: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
+}
+
+.main-div {
+  /*width: 95%;
+  margin: 65px auto;*/
+}
+
+.card-item {
+  width: 220px;
+  /*height: 150px;
+  float: right;*/
+  text-align: center;
+  cursor: pointer;
+  border-radius: 12px;
+  /*padding: 8px 15px;*/
+
+  background: #ECE9E6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #FFFFFF, #ECE9E6); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  border-radius: 25px 25px 10px 10px;
+  border: 2px solid #81ed1e14;
+}
+
+.example-header-image {
+  /*background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;*/
+  float: right;
+}
+
+.mat-card-image {
+  height: 170px;
+  /*width: 115px;
+  border-radius: 50%;*/
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 80%;
+}
+
+#posts-div .mat-card-image {
+  height: auto;
+  width: 95%;
+}
+
+::ng-deep .example-speaker-list > .mat-card-header-text {
+  margin: auto auto !important;
+}
+
+.select-class {
+  margin: auto;
+}
+
+.mat-button {
+  padding: 0 12px;
+  line-height: 28px;
+  font-size: 14px;
+  margin: auto;
+  background-color: #eee;
+}
+
+.mat-chip {
+  margin: 3px !important;
+  font-size: 10px;
+  /*padding: 2px 10px;*/
+  min-height: 22px;
+}
+
+.mat-card-content {
+  margin-bottom: 5px !important;
+}
+
+::ng-deep .mat-chip-list-wrapper {
+  flex-flow: row wrap;
+  box-sizing: border-box;
+  display: flex;
+  place-content: center;
+  align-items: center;
+}
+
+::ng-deep .ng-star-inserted .tile {
+  /*min-height: 350px;
+  max-width: 200px;*/
+  /*border-radius: 20%;*/
+  /*background-color: #ccc;
+  background-size: cover !important;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: unset !important;
+  margin-bottom: 15px;
+}
+
+.ngucarousel-items {
+  height: 388px;
+}
+
+.tile {
+  min-height: 200px;
+  /*background-color: #ccc;*/
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+}
+
+.leftRs:focus, .rightRs:focus {
+  outline: none;
+}
+
+.leftRs, .rightRs {
+  padding-top: 7px;
+}
+
+  .leftRs > *, .rightRs > * {
+    font-size: 26px;
+    font-weight: bold;
+  }
+
+.leftRs {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
+  border-radius: 999px;
+  right: 0;
+}
+
+.rightRs {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
+  border-radius: 999px;
+  left: 0;
+}
+
+.myPoint {
+  list-style-type: none;
+  text-align: center;
+  padding: 12px;
+  margin: 0;
+  white-space: nowrap;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+  .myPoint li {
+    display: inline-block;
+    border-radius: 50%;
+    /*border: 2px solid rgba(0, 0, 0, 0.55);*/
+    padding: 5px;
+    margin: 0 3px;
+    transition-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+    transition: 0.4s;
+    background: #1e90ff;
+  }
+
+    .myPoint li.active {
+      background: #1e90ff;
+      transform: scale(1.2);
+    }
+
+.navMenu {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+  .navMenu li {
+    display: flex;
+    margin: 3px;
+  }
+
+    .navMenu li a {
+      padding: 10px;
+      text-decoration: none;
+      color: black;
+      background: #ccc;
+      border-radius: 6px;
+    }
+
+      .navMenu li a .active {
+        background: goldenrod;
+      }
+
+
+.ng-star-inserted {
+  margin: auto;
+}
+
+.carousel-container{
+  margin-top: 5px;
+}

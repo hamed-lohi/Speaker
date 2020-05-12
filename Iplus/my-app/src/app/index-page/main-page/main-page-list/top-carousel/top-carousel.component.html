@@ -1,0 +1,501 @@
+<!--<h3>Contact Crisis Center</h3>-->
+
+
+  <div id="posts-div" class="carousel-container" *ngIf="postList.length">
+
+    <mat-divider></mat-divider>
+
+    <mat-card class="example-card">
+      <mat-card-header style="margin: auto;">
+        <!--<div mat-card-avatar class="example-header-image"></div>-->
+
+        <mat-card-title>
+          <mat-icon style="color: saddlebrown; font-size: 32px; font-weight: bold;">public</mat-icon>
+          اخبار
+        </mat-card-title>
+        <!--<mat-card-subtitle>درخواست سخنران</mat-card-subtitle>-->
+      </mat-card-header>
+      <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+      <mat-card-content>
+
+        <ngu-carousel #myCarousel [inputs]="carouselTileConfig" [dataSource]="postList">
+
+          <!--<div *nguCarouselDef="let item;" class="item">
+          <div class="tile">
+            <ng-container *ngTemplateOutlet="item"></ng-container>
+          </div>
+        </div>
+        <ng-template #first>
+          <p>First</p>
+        </ng-template>
+        <ng-template #second>
+          <p>Second</p>
+        </ng-template>
+        <ng-template #third>
+          <p>Third</p>
+        </ng-template>-->
+
+
+          <ngu-tile *nguCarouselDef="let item; let i = index;">
+            <!-- [@slider]="ani" PLease this animation to this tile to see animation. stackblitz have error with animations -->
+            <!--<div class="tile" [style.background]="'url('+item+')'">
+            <h1>{{i + 1}}</h1>
+          </div>-->
+
+            <mat-card class="example-card card-item" (click)="showDetail(item.Id)">
+              <img mat-card-image [src]="(item.ImageUrl? item.ImageUrl : '/Content/Images/TheSpeakerImages/personelIcon.png')" />
+              <mat-card-header class="example-speaker-list">
+                <!--<div mat-card-avatar class="example-header-image"></div>-->
+                <!--<div mat-card-avatar> <mat-icon style="color: deepskyblue; font-size: 32px; font-weight: bold;">assignment_ind</mat-icon></div>-->
+                <mat-card-title>{{item.Title}}</mat-card-title>
+                <!--<mat-card-subtitle>{{item.CityName}}</mat-card-subtitle>-->
+                <!-- <mat-card-subtitle>درخواست سخنران</mat-card-subtitle>-->
+              </mat-card-header>
+              
+              <mat-card-content>
+                <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-evenly none">
+
+                </div>
+              </mat-card-content>
+              <!--<mat-card-actions>
+
+              <button mat-stroked-button matTooltip="درخواست سخنران" matTooltipShowDelay="700" color="primary" (click)="showRequestForm()">
+                <mat-icon class="example-icon">assignment_turned_in</mat-icon>درخواست سخنران
+              </button>
+            </mat-card-actions>-->
+            </mat-card>
+
+          </ngu-tile>
+
+          <!--<button NguCarouselPrev class="leftRs"><</button>
+        <button NguCarouselNext class="rightRs">></button>-->
+
+          <button NguCarouselPrev class="leftRs" [style.opacity]="myCarousel.isFirst ? 0.5:1"><mat-icon>chevron_right</mat-icon></button>
+          <button NguCarouselNext class="rightRs" [style.opacity]="myCarousel.isLast ? 0.5:1"><mat-icon>chevron_left</mat-icon></button>
+
+          <ul class="myPoint" NguCarouselPoint>
+            <li *ngFor="let i of myCarousel.pointNumbers; let j = index" [class.active]="i==myCarousel.activePoint" (click)="myCarousel.moveTo(j)"></li>
+          </ul>
+
+
+        </ngu-carousel>
+
+      </mat-card-content>
+      <mat-card-actions>
+
+        <!--<button mat-stroked-button matTooltip="درخواست سخنران" matTooltipShowDelay="700" color="primary" (click)="showRequestForm()">
+        <mat-icon class="example-icon">assignment_turned_in</mat-icon>درخواست سخنران
+      </button>-->
+
+        <button mat-button color="primary" routerLink="/index-page/post">
+          <mat-icon style="font-size: 26px; font-weight: bold;">more</mat-icon>
+          سایر اخبار
+        </button>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+
+<!--------------------------------------------------301-------------------->
+<div class="carousel-container" *ngIf="topSpeakersList.length">
+
+  <mat-divider></mat-divider>
+
+  <mat-card class="example-card">
+    <mat-card-header style="margin: auto;">
+      <!--<div mat-card-avatar class="example-header-image"></div>-->
+
+      <mat-card-title>
+        <mat-icon style="color: #28aa08; font-size: 32px; font-weight: bold;">assignment_ind</mat-icon>
+        اساتید و سخنرانان
+      </mat-card-title>
+      <!--<mat-card-subtitle>درخواست سخنران</mat-card-subtitle>-->
+      <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+    </mat-card-header>
+    <mat-card-content>
+
+      <ngu-carousel #myCarousel [inputs]="carouselTileConfig" [dataSource]="topSpeakersList">
+
+        <!--<div *nguCarouselDef="let item;" class="item">
+          <div class="tile">
+            <ng-container *ngTemplateOutlet="item"></ng-container>
+          </div>
+        </div>
+        <ng-template #first>
+          <p>First</p>
+        </ng-template>
+        <ng-template #second>
+          <p>Second</p>
+        </ng-template>
+        <ng-template #third>
+          <p>Third</p>
+        </ng-template>-->
+
+  
+        <ngu-tile *nguCarouselDef="let item; let i = index;"> <!-- [@slider]="ani" PLease this animation to this tile to see animation. stackblitz have error with animations -->
+          <!--<div class="tile" [style.background]="'url('+item+')'">
+            <h1>{{i + 1}}</h1>
+          </div>-->
+
+          <mat-card class="example-card card-item" (click)="showDetail(item.Id)">
+            <!--<img mat-card-image [src]="speaker.ImageUrl" >-->
+            <mat-card-header class="example-speaker-list">
+              <!--<div mat-card-avatar class="example-header-image"></div>-->
+              <!--<div mat-card-avatar> <mat-icon style="color: deepskyblue; font-size: 32px; font-weight: bold;">assignment_ind</mat-icon></div>-->
+              <mat-card-title>{{item.FName +' '+ item.LName}}</mat-card-title>
+              <mat-card-subtitle>{{item.CityName}}</mat-card-subtitle>
+              <!-- <mat-card-subtitle>درخواست سخنران</mat-card-subtitle>-->
+            </mat-card-header>
+            <img mat-card-image [src]="(item.ImageUrl? item.ImageUrl : '/Content/Images/TheSpeakerImages/personelIcon.png')" />
+            <mat-card-content>
+              <!--<p>{{item.TblSpeechFieldNames}}</p>-->
+              <mat-chip-list>
+                <mat-chip *ngFor="let itemf of item.TblSpeechFieldNames">{{itemf}}</mat-chip>
+              </mat-chip-list>
+            </mat-card-content>
+            <!--<mat-card-actions>
+
+              <button mat-stroked-button matTooltip="درخواست سخنران" matTooltipShowDelay="700" color="primary" (click)="showRequestForm()">
+                <mat-icon class="example-icon">assignment_turned_in</mat-icon>درخواست سخنران
+              </button>
+            </mat-card-actions>-->
+          </mat-card>
+
+        </ngu-tile>
+
+        <!--<button NguCarouselPrev class="leftRs"><</button>
+        <button NguCarouselNext class="rightRs">></button>-->
+
+        <button NguCarouselPrev class="leftRs" [style.opacity]="myCarousel.isFirst ? 0.5:1"><mat-icon>chevron_right</mat-icon></button>
+        <button NguCarouselNext class="rightRs" [style.opacity]="myCarousel.isLast ? 0.5:1"><mat-icon>chevron_left</mat-icon></button>
+
+        <ul class="myPoint" NguCarouselPoint>
+          <li *ngFor="let i of myCarousel.pointNumbers; let j = index" [class.active]="i==myCarousel.activePoint" (click)="myCarousel.moveTo(j)"></li>
+        </ul>
+    
+
+      </ngu-carousel>
+
+    </mat-card-content>
+    <mat-card-actions>
+
+      <!--<button mat-stroked-button matTooltip="درخواست سخنران" matTooltipShowDelay="700" color="primary" (click)="showRequestForm()">
+        <mat-icon class="example-icon">assignment_turned_in</mat-icon>درخواست سخنران
+      </button>-->
+
+      <button mat-button color="primary" routerLink="/index-page/the-speaker/301">
+        <mat-icon style="font-size: 26px; font-weight: bold;">more</mat-icon>
+        سایر
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
+
+<!---------------------------------302-------------------------------------->
+
+<div class="carousel-container"  *ngIf="topSpeakersList1.length">
+
+  <mat-divider></mat-divider>
+
+  <mat-card class="example-card">
+    <mat-card-header style="margin: auto;">
+
+      <mat-card-title>
+        <mat-icon style="color: #28aa08; font-size: 32px; font-weight: bold;">assignment_ind</mat-icon>
+        فعال ادبی و هنری
+      </mat-card-title>
+
+    </mat-card-header>
+    <mat-card-content>
+
+      <ngu-carousel #myCarousela [inputs]="carouselTileConfig" [dataSource]="topSpeakersList1">
+
+
+        <ngu-tile *nguCarouselDef="let item; let i = index;">
+
+          <mat-card class="example-card card-item" (click)="showDetail(item.Id)">
+            <mat-card-header class="example-speaker-list">
+              <mat-card-title>{{item.FName +' '+ item.LName}}</mat-card-title>
+              <mat-card-subtitle>{{item.CityName}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image [src]="(item.ImageUrl? item.ImageUrl : '/Content/Images/TheSpeakerImages/personelIcon.png')" />
+            <mat-card-content>
+              <!--<p>{{item.TblSpeechFieldNames}}</p>-->
+              <mat-chip-list>
+                <mat-chip *ngFor="let itemf of item.TblSpeechFieldNames">{{itemf}}</mat-chip>
+              </mat-chip-list>
+            </mat-card-content>
+
+          </mat-card>
+
+        </ngu-tile>
+
+        <button NguCarouselPrev class="leftRs" [style.opacity]="myCarousela.isFirst ? 0.5:1"><mat-icon>chevron_right</mat-icon></button>
+        <button NguCarouselNext class="rightRs" [style.opacity]="myCarousela.isLast ? 0.5:1"><mat-icon>chevron_left</mat-icon></button>
+
+        <ul class="myPoint" NguCarouselPoint>
+          <li *ngFor="let i of myCarousela.pointNumbers; let i = index" [class.active]="i==myCarousela.activePoint" (click)="myCarousela.moveTo(i)"></li>
+        </ul>
+
+
+      </ngu-carousel>
+
+    </mat-card-content>
+    <mat-card-actions>
+
+      <button mat-button color="primary" routerLink="/index-page/the-speaker/302">
+        <mat-icon style="font-size: 26px; font-weight: bold;">more</mat-icon>
+        سایر
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
+
+<!--------------------------------303--------------------------------------->
+
+<div class="carousel-container"  *ngIf="topSpeakersList2.length">
+
+  <mat-divider></mat-divider>
+
+  <mat-card class="example-card">
+    <mat-card-header style="margin: auto;">
+
+      <mat-card-title>
+        <mat-icon style="color: #28aa08; font-size: 32px; font-weight: bold;">assignment_ind</mat-icon>
+        راوی دفاع مقدس
+      </mat-card-title>
+
+    </mat-card-header>
+    <mat-card-content>
+
+      <ngu-carousel #myCarouselb [inputs]="carouselTileConfig" [dataSource]="topSpeakersList2">
+
+
+        <ngu-tile *nguCarouselDef="let item; let i = index;">
+
+          <mat-card class="example-card card-item" (click)="showDetail(item.Id)">
+            <mat-card-header class="example-speaker-list">
+              <mat-card-title>{{item.FName +' '+ item.LName}}</mat-card-title>
+              <mat-card-subtitle>{{item.CityName}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image [src]="(item.ImageUrl? item.ImageUrl : '/Content/Images/TheSpeakerImages/personelIcon.png')" />
+            <mat-card-content>
+              <!--<p>{{item.TblSpeechFieldNames}}</p>-->
+              <mat-chip-list>
+                <mat-chip *ngFor="let itemf of item.TblSpeechFieldNames">{{itemf}}</mat-chip>
+              </mat-chip-list>
+            </mat-card-content>
+
+          </mat-card>
+
+        </ngu-tile>
+
+        <button NguCarouselPrev class="leftRs" [style.opacity]="myCarouselb.isFirst ? 0.5:1"><mat-icon>chevron_right</mat-icon></button>
+        <button NguCarouselNext class="rightRs" [style.opacity]="myCarouselb.isLast ? 0.5:1"><mat-icon>chevron_left</mat-icon></button>
+
+        <ul class="myPoint" NguCarouselPoint>
+          <li *ngFor="let i of myCarouselb.pointNumbers; let i = index" [class.active]="i==myCarouselb.activePoint" (click)="myCarouselb.moveTo(i)"></li>
+        </ul>
+
+
+      </ngu-carousel>
+
+    </mat-card-content>
+    <mat-card-actions>
+
+      <button mat-button color="primary" routerLink="/index-page/the-speaker/303">
+        <mat-icon style="font-size: 26px; font-weight: bold;">more</mat-icon>
+        سایر
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
+
+<!--------------------------------304--------------------------------------->
+
+<div class="carousel-container"  *ngIf="topSpeakersList3.length">
+
+  <mat-divider></mat-divider>
+
+  <mat-card class="example-card">
+    <mat-card-header style="margin: auto;">
+
+      <mat-card-title>
+        <mat-icon style="color: #28aa08; font-size: 32px; font-weight: bold;">assignment_ind</mat-icon>
+        فعال و نخبه قرآنی
+      </mat-card-title>
+
+    </mat-card-header>
+    <mat-card-content>
+
+      <ngu-carousel #myCarouselc [inputs]="carouselTileConfig" [dataSource]="topSpeakersList3">
+
+
+        <ngu-tile *nguCarouselDef="let item; let i = index; let ani = animate">
+
+          <mat-card class="example-card card-item" (click)="showDetail(item.Id)">
+            <mat-card-header class="example-speaker-list">
+              <mat-card-title>{{item.FName +' '+ item.LName}}</mat-card-title>
+              <mat-card-subtitle>{{item.CityName}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image [src]="(item.ImageUrl? item.ImageUrl : '/Content/Images/TheSpeakerImages/personelIcon.png')" />
+            <mat-card-content>
+              <!--<p>{{item.TblSpeechFieldNames}}</p>-->
+              <mat-chip-list>
+                <mat-chip *ngFor="let itemf of item.TblSpeechFieldNames">{{itemf}}</mat-chip>
+              </mat-chip-list>
+            </mat-card-content>
+
+          </mat-card>
+
+        </ngu-tile>
+
+        <button NguCarouselPrev class="leftRs" [style.opacity]="myCarouselc.isFirst ? 0.5:1"><mat-icon>chevron_right</mat-icon></button>
+        <button NguCarouselNext class="rightRs" [style.opacity]="myCarouselc.isLast ? 0.5:1"><mat-icon>chevron_left</mat-icon></button>
+
+        <ul class="myPoint" NguCarouselPoint>
+          <li *ngFor="let i of myCarouselc.pointNumbers; let i = index" [class.active]="i==myCarouselc.activePoint" (click)="myCarouselc.moveTo(i)"></li>
+        </ul>
+
+
+      </ngu-carousel>
+
+    </mat-card-content>
+    <mat-card-actions>
+
+      <button mat-button color="primary" routerLink="/index-page/the-speaker/304">
+        <mat-icon style="font-size: 26px; font-weight: bold;">more</mat-icon>
+        سایر
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
+
+<!--------------------------------305--------------------------------------->
+
+<div class="carousel-container"  *ngIf="topSpeakersList4.length">
+
+  <mat-divider></mat-divider>
+
+  <mat-card class="example-card">
+    <mat-card-header style="margin: auto;">
+
+      <mat-card-title>
+        <mat-icon style="color: #28aa08; font-size: 32px; font-weight: bold;">assignment_ind</mat-icon>
+        مداح و ستایشگر
+      </mat-card-title>
+
+    </mat-card-header>
+    <mat-card-content>
+
+      <ngu-carousel #myCarouseld [inputs]="carouselTileConfig" [dataSource]="topSpeakersList4">
+
+
+        <ngu-tile *nguCarouselDef="let item; let i = index; let ani = animate">
+
+          <mat-card class="example-card card-item" (click)="showDetail(item.Id)">
+            <mat-card-header class="example-speaker-list">           
+              <mat-card-title>{{item.FName +' '+ item.LName}}</mat-card-title>
+              <mat-card-subtitle>{{item.CityName}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image [src]="(item.ImageUrl? item.ImageUrl : '/Content/Images/TheSpeakerImages/personelIcon.png')" />
+            <mat-card-content>
+              <!--<p>{{item.TblSpeechFieldNames}}</p>-->
+              <mat-chip-list>
+                <mat-chip *ngFor="let itemf of item.TblSpeechFieldNames">{{itemf}}</mat-chip>
+              </mat-chip-list>
+            </mat-card-content>
+
+          </mat-card>
+
+        </ngu-tile>
+
+        <button NguCarouselPrev class="leftRs" [style.opacity]="myCarouseld.isFirst ? 0.5:1"><mat-icon>chevron_right</mat-icon></button>
+        <button NguCarouselNext class="rightRs" [style.opacity]="myCarouseld.isLast ? 0.5:1"><mat-icon>chevron_left</mat-icon></button>
+
+        <ul class="myPoint" NguCarouselPoint>
+          <li *ngFor="let i of myCarouseld.pointNumbers; let i = index" [class.active]="i==myCarouseld.activePoint" (click)="myCarouseld.moveTo(i)"></li>
+        </ul>
+
+
+      </ngu-carousel>
+
+    </mat-card-content>
+    <mat-card-actions>
+
+      <button mat-button color="primary" routerLink="/index-page/the-speaker/305">
+        <mat-icon style="font-size: 26px; font-weight: bold;">more</mat-icon>
+        سایر
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
+
+<!--------------------------------306--------------------------------------->
+
+<div class="carousel-container"  *ngIf="topSpeakersList5.length">
+
+  <mat-divider></mat-divider>
+
+  <mat-card class="example-card">
+    <mat-card-header style="margin: auto;">
+
+      <mat-card-title>
+        <mat-icon style="color: #28aa08; font-size: 32px; font-weight: bold;">assignment_ind</mat-icon>
+        گروه سرود و تواشیح
+      </mat-card-title>
+
+    </mat-card-header>
+    <mat-card-content>
+
+      <ngu-carousel #myCarousele [inputs]="carouselTileConfig" [dataSource]="topSpeakersList5">
+
+
+        <ngu-tile *nguCarouselDef="let item; let i = index; let ani = animate">
+
+          <mat-card class="example-card card-item" (click)="showDetail(item.Id)">
+            <mat-card-header class="example-speaker-list">
+              <mat-card-title>{{item.GroupName}}</mat-card-title>
+              <mat-card-subtitle>{{item.CityName}}</mat-card-subtitle>
+
+              <!--<mat-card-title>{{item.LName}}</mat-card-title>
+              <mat-card-subtitle>{{item.FName}}</mat-card-subtitle>-->
+            </mat-card-header>
+            <img mat-card-image [src]="(item.ImageUrl? item.ImageUrl : '/Content/Images/TheSpeakerImages/personelIcon.png')" />
+            <mat-card-content>
+              <!--<p>{{item.TblSpeechFieldNames}}</p>-->
+              <mat-chip-list>
+                <mat-chip *ngFor="let itemf of item.TblSpeechFieldNames">{{itemf}}</mat-chip>
+              </mat-chip-list>
+            </mat-card-content>
+
+          </mat-card>
+
+        </ngu-tile>
+
+        <button NguCarouselPrev class="leftRs" [style.opacity]="myCarousele.isFirst ? 0.5:1"><mat-icon>chevron_right</mat-icon></button>
+        <button NguCarouselNext class="rightRs" [style.opacity]="myCarousele.isLast ? 0.5:1"><mat-icon>chevron_left</mat-icon></button>
+
+        <ul class="myPoint" NguCarouselPoint>
+          <li *ngFor="let i of myCarousele.pointNumbers; let i = index" [class.active]="i==myCarousele.activePoint" (click)="myCarousele.moveTo(i)"></li>
+        </ul>
+
+
+      </ngu-carousel>
+
+    </mat-card-content>
+    <mat-card-actions>
+
+      <button mat-button color="primary" routerLink="/index-page/the-speaker/306">
+        <mat-icon style="font-size: 26px; font-weight: bold;">more</mat-icon>
+        سایر
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>

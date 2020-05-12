@@ -1,0 +1,62 @@
+<!--<h3>Contact Crisis Center</h3>-->
+
+<div>
+
+  <mat-divider></mat-divider>
+
+  <mat-card class="example-card">
+    <mat-card-header style="margin: auto;">
+      <!--<div mat-card-avatar class="example-header-image"></div>-->
+
+      <mat-card-title>
+        <mat-icon style="color: #28aa08; font-size: 32px; font-weight: bold;">assignment_ind</mat-icon>
+        اساتید و سخنرانان
+      </mat-card-title>
+      <!--<mat-card-subtitle>درخواست سخنران</mat-card-subtitle>-->
+    </mat-card-header>
+    <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+    <mat-card-content>
+      <div fxLayout="row wrap" fxLayoutAlign="space-evenly none">
+
+
+        <mat-card class="example-card card-item" *ngFor="let speaker of topSpeakersList" (click)="showDetail(speaker.Id)">
+          <!--<img mat-card-image [src]="speaker.ImageUrl" >-->
+          <mat-card-header class="example-speaker-list">
+            <!--<div mat-card-avatar class="example-header-image"></div>-->
+            <!--<div mat-card-avatar> <mat-icon style="color: deepskyblue; font-size: 32px; font-weight: bold;">assignment_ind</mat-icon></div>-->
+            <mat-card-title>{{speaker.LName}}</mat-card-title>
+            <mat-card-subtitle>{{speaker.FName}}</mat-card-subtitle>
+            <!-- <mat-card-subtitle>درخواست سخنران</mat-card-subtitle>-->
+          </mat-card-header>
+          <img mat-card-image [src]="(speaker.ImageUrl? speaker.ImageUrl : '/Content/Images/TheSpeakerImages/personelIcon.png')" />
+          <mat-card-content>
+            <!--<p>{{speaker.TblSpeechFieldNames}}</p>-->
+            <mat-chip-list>
+              <mat-chip *ngFor="let item of speaker.TblSpeechFieldNames">{{item}}</mat-chip>
+            </mat-chip-list>
+          </mat-card-content>
+          <!--<mat-card-actions>
+
+            <button mat-stroked-button matTooltip="درخواست سخنران" matTooltipShowDelay="700" color="primary" (click)="showRequestForm()">
+              <mat-icon class="example-icon">assignment_turned_in</mat-icon>درخواست سخنران
+            </button>
+          </mat-card-actions>-->
+        </mat-card>
+
+
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+
+      <!--<button mat-stroked-button matTooltip="درخواست سخنران" matTooltipShowDelay="700" color="primary" (click)="showRequestForm()">
+        <mat-icon class="example-icon">assignment_turned_in</mat-icon>درخواست سخنران
+      </button>-->
+
+      <button mat-button color="primary" routerLink="/index-page/the-speaker/301">
+        <mat-icon style="font-size: 26px; font-weight: bold;">more</mat-icon>
+        سایر سخنرانان
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>

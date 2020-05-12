@@ -1,0 +1,90 @@
+
+<mat-accordion class="example-headers-align">
+
+  <mat-expansion-panel hideToggle  expanded="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        ثابت
+      </mat-panel-title>
+      <mat-panel-description>
+        تعریف ثابت
+        <mat-icon color="primary" >account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <h1 mat-dialog-title>
+      <img *ngIf="data.ImageUrl" [src]="data.ImageUrl" width="60" height="60" />
+      <mat-icon *ngIf="!data.ImageUrl" class="example-icon photo">photo</mat-icon>
+      <br/>
+      <!--<div class="container">
+      <button md-raised-button color="primary" (click)="fileInput.click()">Upload</button>
+      <input id="ImageUrl" hidden type="file" (change)="onSelectFile($event)" #fileInput>-->
+
+      <button mat-mini-fab color="warn" *ngIf="data.ImageUrl" mat-stroked-button matTooltip="حذف عکس" matTooltipShowDelay="700" color="warn" (click)="deleteImage(data.ImageFileId)">
+        <mat-icon class="example-icon">clear</mat-icon>
+      </button>
+      <!--<input *ngIf="!data.ImageUrl" type='file' (change)="handleFileInput($event.target.files)">-->
+      <input *ngIf="!data.ImageUrl" type='file' id="ImageFileIdField" #ImageFileIdField (change)="handleFileInput(ImageFileIdField, 105)">
+
+      <!--</div>-->
+      <!--<angular-file-uploader
+      [config]="afuConfig"
+      [resetUpload]=resetVar
+      (ApiResponse)="DocUpload($event)">
+    </angular-file-uploader>-->
+
+    </h1>
+    <div mat-dialog-content>
+
+      <mat-form-field>
+        <input matInput type="number" placeholder="شناسه" [(ngModel)]="data.Id" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="عنوان" [(ngModel)]="data.ConstName" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="number" placeholder="اولویت" [(ngModel)]="data.Priority">
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput placeholder="توضیحات" [(ngModel)]="data.Description"></textarea>
+      </mat-form-field>
+
+      <!--<mat-form-field>
+        <mat-select placeholder="شهر" [(value)]="data.CityId">
+          <mat-option>--انتخاب کنید--</mat-option>
+          <mat-option *ngFor="let city of selectListCity" [value]="city.Id">
+            {{city.Text}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>-->
+      
+      <!--<section class="example-section">
+        <mat-checkbox class="example-margin" [(ngModel)]="data.IsApproved" [matTooltip]="data.ApprovedDate" matTooltipPosition="left">تایید شده</mat-checkbox>
+      </section>-->
+
+
+
+    </div>
+
+    <!--<mat-action-row>
+        <button mat-button color="primary" (click)="nextStep()">Next</button>
+      </mat-action-row>-->
+</mat-expansion-panel>
+
+</mat-accordion>
+
+
+<!--<section class="example-section">
+  <mat-progress-bar
+    class="example-margin"
+    color="primary"
+    mode="indeterminate"
+    value="50"
+    bufferValue="75">
+  </mat-progress-bar>
+</section>-->
+
+<div mat-dialog-actions>
+  <button mat-raised-button [mat-dialog-close]="data" cdkFocusInitial><mat-icon color="primary" class="example-icon">save</mat-icon>ذخیره</button>
+  <button mat-raised-button (click)="onNoClick()"><mat-icon color="primary" class="example-icon">cancel</mat-icon>لغو</button>
+</div>

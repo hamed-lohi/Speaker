@@ -1,0 +1,142 @@
+
+<mat-tab-group class="mmaatt"  color="accent">
+
+  <mat-tab label="پروفایل عمومی">
+
+
+    <mat-card class="example-card">
+      <mat-card-content>
+
+
+
+        <mat-expansion-panel >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon color="primary">account_circle</mat-icon> 
+              اطلاعات ثبت نام
+            </mat-panel-title>
+            <!--<mat-panel-description>         
+              <mat-icon color="primary">account_circle</mat-icon>
+            </mat-panel-description>-->
+          </mat-expansion-panel-header>
+
+          <div fxLayout="row wrap" fxLayoutAlign="space-around start">
+
+            <mat-form-field>
+              <input matInput type="number" placeholder="(نام کاربری) شماره موبایل" [(ngModel)]="accountInfo.UserPhoneNumber" required>
+              <mat-icon matSuffix>smartphone</mat-icon>
+              <mat-hint>مثال: 9141021233</mat-hint>
+              <!--<mat-hint>توجه: درصورت تغییر، باید با این شماره موبایل وارد حساب کاربری شوید  </mat-hint>-->
+            </mat-form-field><br/>
+
+            <mat-form-field>
+              <input matInput placeholder="نام" [(ngModel)]="accountInfo.FName" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="نام خانوادگی" [(ngModel)]="accountInfo.LName" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput type="email" placeholder="پست الکترونیکی" [(ngModel)]="accountInfo.Email">
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+
+          </div>
+
+        </mat-expansion-panel>
+
+
+        <mat-expansion-panel >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon color="primary">business</mat-icon> 
+              اطلاعات مجموعه
+            </mat-panel-title>
+            <!--<mat-panel-description>            
+              <mat-icon color="primary">business</mat-icon>
+            </mat-panel-description>-->
+          </mat-expansion-panel-header>
+
+          <div fxLayout="row wrap" fxLayoutAlign="space-around start">
+
+            <mat-form-field >
+              <input matInput placeholder="نام مجموعه یا موسسه" [(ngModel)]="accountInfo.CompanyName" required>
+            </mat-form-field>
+            <mat-form-field >
+              <input matInput placeholder="نوع فعالیت مجموعه یا موسسه" [(ngModel)]="accountInfo.ActivityType" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-select placeholder="شهر" [(value)]="accountInfo.CityId" required>
+                <mat-option>--انتخاب کنید--</mat-option>
+                <mat-option *ngFor="let city of selectListCity" [value]="city.Id">
+                  {{city.Text}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field >
+              <input matInput placeholder="آدرس" [(ngModel)]="accountInfo.Adress" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="نام مسئول" [(ngModel)]="accountInfo.ResponsibleName" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="شماره همراه مسئول" [(ngModel)]="accountInfo.ResponsibleMobile" required>
+              <mat-icon matSuffix>smartphone</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="شماره تلفن" [(ngModel)]="accountInfo.PhoneNumber" required>
+              <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
+
+            <!--<mat-form-field>
+              <input matInput placeholder="پست الکترونیکی" [(ngModel)]="accountInfo.Email" required>
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>-->
+
+            <mat-form-field>
+              <input matInput placeholder="آدرس سایت اینترنتی" [(ngModel)]="accountInfo.SiteUrl">
+            </mat-form-field>
+
+            <!--<mat-form-field fxFlex="100">
+              <textarea matInput placeholder="توضیحات" [(ngModel)]="accountInfo.Description"></textarea>
+            </mat-form-field>-->
+
+          </div>
+
+        </mat-expansion-panel>
+
+
+      </mat-card-content>
+
+      <mat-card-actions>
+
+        <button mat-stroked-button matTooltip="ثبت" matTooltipShowDelay="700" color="primary" (click)="save()">
+          <mat-icon class="example-icon">save</mat-icon>ذخیره
+        </button>
+
+      </mat-card-actions>
+    </mat-card>
+
+
+  </mat-tab>
+
+  <mat-tab class="tab-label" label="پروفایل تخصصی همکاران">
+
+    <app-the-speaker-list viewType="1"></app-the-speaker-list>
+
+  </mat-tab>
+
+  <mat-tab label="سابقه درخواست ها">
+
+    <app-speaker-request-list viewType="1"></app-speaker-request-list>
+
+  </mat-tab>
+
+</mat-tab-group>
+

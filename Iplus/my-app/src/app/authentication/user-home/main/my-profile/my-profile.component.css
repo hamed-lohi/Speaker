@@ -1,0 +1,75 @@
+.mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*.example-headers-align{
+  margin: 4px;
+}*/
+
+.ck-editor__editable {
+  min-height: 200px;
+}
+
+/*::ng-deep .mat-tab-label {
+  height: 45px !important;
+  min-width: 150px !important;
+  font-size: 12px !important;
+}*/
+
+.mat-form-field {
+  margin: 8px;
+  min-width: 250px;
+}
+
+.mat-expansion-panel-header-title{
+  font-size: 13px;
+  color: gray;
+}
+
+::ng-deep .mmaatt .mat-tab-label {
+  border: 1px solid #fcfafb;
+  border-radius: 8px 8px 0px 0px;
+  background: #1665dd;
+  color: #fff;
+  padding: 0;
+  font-size: 12px;
+  height: 42px;
+}
+
+/*
+  ::ng-deep .mat-tab-label {
+  border: 1px solid #fcfafb;
+  border-radius: 8px 8px 0px 0px;
+  background: #1665dd;
+  color: #fff;
+  padding: 0;
+}
+
+  ::ng-deep .mat-ink-bar {
+  background-color: #e6f31d !important;
+  height: 2px !important;
+}
+
+.mat-card-image {
+  height: 115px;
+  width: 115px;
+  border-radius: 50%;
+}
+
+.example-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-item {
+  width: 220px;
+  height: 150px;
+  float: right;
+  text-align: center;
+  margin: 5px;
+}*/

@@ -1,0 +1,50 @@
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align{
+  margin: 4px;
+}
+
+.mat-card-image {
+  /*height: 115px;*/
+  max-width: 300px;
+  /*border-radius: 50%;*/
+}
+
+.example-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-item {
+  width: 300px;
+  /*height: 150px;
+  float: right;*/
+  text-align: center;
+  margin: 5px;
+}
+
+.mat-chip {
+  margin: 1px !important;
+  font-size: 10px;
+  padding: 2px 10px;
+  min-height: 22px;
+}
+
+::ng-deep .example-speaker-list > .mat-card-header-text {
+  margin: auto auto !important;
+}
+
+::ng-deep .mat-chip-list-wrapper {
+  flex-flow: row wrap;
+  box-sizing: border-box;
+  display: flex;
+  place-content: center;
+  align-items: center;
+}

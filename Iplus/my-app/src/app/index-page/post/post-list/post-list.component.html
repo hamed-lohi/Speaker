@@ -1,0 +1,53 @@
+<!--<ul class="crises">
+  <li *ngFor="let crisis of crises$ | async"
+      [class.selected]="crisis.id === selectedId">
+    <a [routerLink]="[crisis.id]">
+      <span class="badge">{{ crisis.id }}</span>{{ crisis.name }}
+    </a>
+  </li>
+</ul>-->
+
+<!--<mat-toolbar color="basic" class="mat-toolbar-class">
+  <mat-toolbar-row>
+    <button mat-stroked-button matTooltip="ثبت سخنران جدید" matTooltipShowDelay="700" color="primary" (click)="openDialog(true)"><mat-icon class="example-icon">add</mat-icon></button>
+    <button mat-stroked-button matTooltip="ویرایش" matTooltipShowDelay="700" color="primary" (click)="openDialog(false)"><mat-icon class="example-icon">edit</mat-icon></button>
+    <button mat-stroked-button matTooltip="حذف" matTooltipShowDelay="700" color="warn" (click)="deleteRecords()"><mat-icon class="example-icon">delete</mat-icon></button>
+    
+  </mat-toolbar-row>
+</mat-toolbar>-->
+
+
+<div fxLayout="column" fxLayoutAlign="space-evenly center">
+
+
+  <mat-card fxFlex="80" fxLayout="row" fxLayoutAlign="center center" class="example-card card-item" *ngFor="let post of postsData" (click)="showDetail(post.Id)">
+    
+
+
+
+    <mat-card fxFlex="20" class="example-card">
+      <!--<mat-card-header>
+        <mat-card-title>{{post.Title}}</mat-card-title>
+      </mat-card-header>-->
+      <img mat-card-image [src]="(post.ImageUrl? post.ImageUrl : '/Content/Images/TheSpeakerImages/personelIcon.png')" />
+      <!--<mat-card-content>
+      </mat-card-content>-->
+    </mat-card>
+
+    <mat-card  fxFlex>
+      <mat-card-header>
+        <mat-card-title>{{post.Title}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="text-content" [innerHTML]="post.Summary">
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+
+
+  </mat-card>
+
+</div>
+
+<!--<router-outlet></router-outlet>-->
