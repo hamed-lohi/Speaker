@@ -26,13 +26,16 @@
   <!--<div class="main-div" fxLayout="row wrap" fxLayoutAlign="space-evenly none">-->
     <div class="card-item">
       <mat-card class="example-card">
-        <mat-card-header  class="example-speaker-list">
+        <mat-card-header class="example-speaker-list">
           <!--<div mat-card-avatar class="example-header-image">-->
           <!--</div>-->
           <!--<div mat-card-avatar> <mat-icon style="color: deepskyblue; font-size: 32px; font-weight: bold;">assignment_ind</mat-icon></div>-->
-          <mat-card-title *ngIf="speakerInfo.SSActivityId == 306">{{speakerInfo.GroupName}}</mat-card-title>
-          <mat-card-title *ngIf="speakerInfo.SSActivityId != 306">{{speakerInfo.FName +"  "+ speakerInfo.LName}}</mat-card-title>
-          <mat-card-subtitle>{{speakerInfo.CityName}}</mat-card-subtitle>
+
+            <mat-card-title *ngIf="speakerInfo.SSActivityId && speakerInfo.SSActivityId == 306">{{speakerInfo.GroupName}}</mat-card-title>
+            <mat-card-title *ngIf="speakerInfo.SSActivityId && speakerInfo.SSActivityId != 306">{{speakerInfo.FName +"  "+ speakerInfo.LName}}</mat-card-title>
+            <mat-card-subtitle>{{speakerInfo.CityName}}</mat-card-subtitle>
+          
+          
         </mat-card-header>
 
         <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->

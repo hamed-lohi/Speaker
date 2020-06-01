@@ -137,6 +137,7 @@ export class TopCarouselComponent implements OnInit, AfterViewInit {
   //};
 
   postList: any = [];
+  filmList: any = [];
   topSpeakersList: any = [];
   topSpeakersList1: any = [];
   topSpeakersList2: any = [];
@@ -150,6 +151,7 @@ export class TopCarouselComponent implements OnInit, AfterViewInit {
     private cdr: ChangeDetectorRef) {
 
     this.getPosts();
+    this.getFilms();
   }
 
   getPosts() {
@@ -157,6 +159,13 @@ export class TopCarouselComponent implements OnInit, AfterViewInit {
     this.service.setApiUrl('PostApi');
     this.service.getData('GetPostsForIndexPage', 'SSPostType=201')
       .subscribe(a => this.postList = a);
+  }
+
+  getFilms() {
+
+    this.service.setApiUrl('PostApi');
+    this.service.getData('GetPostsForIndexPage', 'SSPostType=203')
+      .subscribe(a => this.filmList = a);
   }
 
   ngAfterViewInit() {
@@ -195,6 +204,12 @@ export class TopCarouselComponent implements OnInit, AfterViewInit {
   showDetail(speakerId: number) {
     //this.service.selectedSpeakerId = speakerId;
     this.router.navigate(['/index-page/the-speaker/detail', speakerId]);
+    //this.router.navigate(['/superheroes', { id: heroId, foo: 'foo' }]);
+  }
+
+  showDetailPost(postId: number) {
+    //this.service.selectedSpeakerId = speakerId;
+    this.router.navigate(['/index-page/post/detail', postId]);
     //this.router.navigate(['/superheroes', { id: heroId, foo: 'foo' }]);
   }
 

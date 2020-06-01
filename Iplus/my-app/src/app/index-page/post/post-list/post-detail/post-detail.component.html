@@ -29,7 +29,8 @@
         <mat-card-header>
           <!--<mat-card-title>{{postInfo.Title}}</mat-card-title>-->
         </mat-card-header>
-        <img mat-card-image [src]="(postInfo.ImageUrl? postInfo.ImageUrl : '/Content/Images/TheSpeakerImages/personelIcon.png')" />
+        <!--<img mat-card-image [src]="(postInfo.ImageUrl? postInfo.ImageUrl : '/Content/Images/TheSpeakerImages/personelIcon.png')" />-->
+        <img mat-card-image *ngIf="postInfo.ImageUrl" [src]="postInfo.ImageUrl" />
         <mat-card-content>
         </mat-card-content>
       </mat-card>

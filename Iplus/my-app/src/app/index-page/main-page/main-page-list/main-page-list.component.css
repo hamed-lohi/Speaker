@@ -22,7 +22,11 @@
   margin: auto;
 }
 
-.half-parent{
+.register-div {
+  margin-bottom: 15px;
+}
+
+.half-parent {
   width: 50%;
   float: right;
 }

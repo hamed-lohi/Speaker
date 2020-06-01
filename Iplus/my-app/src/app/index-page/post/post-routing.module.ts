@@ -9,7 +9,7 @@ import { PostDetailComponent } from "src/app/index-page/post/post-list/post-deta
 const postRoutes: Routes = [
 
   {
-    path: '',
+    path: ':id',
     component: PostListComponent,
     },
   {

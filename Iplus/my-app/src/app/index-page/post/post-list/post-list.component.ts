@@ -28,6 +28,7 @@ export class PostListComponent extends BaseComponent implements OnInit {
     //selectListSpeechFields: any[];
     selectedId: number;
     //private _speechFieldIds: number[] = null;
+    postTypeId: number;
 
     constructor(
         private service: PostService,
@@ -46,9 +47,12 @@ export class PostListComponent extends BaseComponent implements OnInit {
 
         //this.dataSource = this.dataSource; //MatTableDataSource<any>(this.dataList);
         //this.dataSource.paginator = this.paginator;
+      this.route.paramMap.subscribe(params => {
+        this.postTypeId = +params.get("id");
 
-      this.service.getData('GetPostsList', 'SSPostType=201')
-        .subscribe(a => this.postsData = a);
+        this.service.getData('GetPostsList', 'SSPostType=' + this.postTypeId) // 201
+          .subscribe(a => this.postsData = a);
+      });
 
     }
 

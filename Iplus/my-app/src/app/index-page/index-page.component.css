@@ -4,7 +4,8 @@
   bottom: 60px;*/
   left: 0;
   right: 0;
-  background-image: linear-gradient(#215dba1c 6%, #b6dcf863, #ffffff);
+  /*background-image: linear-gradient(#215dba1c 6%, #b6dcf863, #ffffff);*/
+  background-color: #f4f4f2;
 }
 
 .example-sidenav {
@@ -76,11 +77,12 @@
 
 
 .example-card-footer {
-  width: 180px;
+  width: 150px;
   background-color: unset;
   color: #23272b;
   box-shadow: none;
   padding: 6px;
+
 }
 
 .mat-card-title {

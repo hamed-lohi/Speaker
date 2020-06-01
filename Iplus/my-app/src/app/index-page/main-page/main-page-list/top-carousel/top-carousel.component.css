@@ -140,7 +140,7 @@ table {
   width: 80%;
 }
 
-#posts-div .mat-card-image {
+#posts-div .mat-card-image, #films-div .mat-card-image {
   height: auto;
   width: 95%;
 }
@@ -157,8 +157,9 @@ table {
   padding: 0 12px;
   line-height: 28px;
   font-size: 14px;
-  margin: auto;
-  background-color: #eee;
+  /*  margin: auto;
+  background-color: #eee;*/
+  margin-right: -34px;
 }
 
 .mat-chip {

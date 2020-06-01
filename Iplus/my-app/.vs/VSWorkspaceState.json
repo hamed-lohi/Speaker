@@ -4,10 +4,10 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\index-page",
+    "\\src\\app\\index-page\\main-page",
     "\\src\\app\\index-page\\main-page\\main-page-list",
-    "\\src\\app\\index-page\\main-page\\main-page-list\\top-speakers",
-    "\\src\\app\\index-page\\the-speaker\\the-speaker-list"
+    "\\src\\app\\index-page\\main-page\\main-page-list\\top-speakers"
   ],
-  "SelectedNode": "\\src\\index.html",
+  "SelectedNode": "\\src\\app\\index-page\\main-page\\main-page-list\\top-speakers",
   "PreviewInSolutionExplorer": false
 }
