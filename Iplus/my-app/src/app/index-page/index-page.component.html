@@ -44,12 +44,13 @@
             <span>{{item.Text}}</span>
           </button>
 
-          
+
 
         </mat-menu>
 
         <a mat-stroked-button color="primary" routerLink="/index-page/the-speaker/request" [class.selected]="getIsCurrentCategory('request')">درخواست خدمات</a>
-        <a mat-stroked-button color="primary" routerLink="/index-page/post" [class.selected]="getIsCurrentCategory('/index-page/post')">اخبار</a>
+        <a mat-stroked-button color="primary" routerLink="/index-page/post/201" [class.selected]="getIsCurrentCategory('/index-page/post/201')">اخبار</a>
+        <a mat-stroked-button color="primary" routerLink="/index-page/post/203" [class.selected]="getIsCurrentCategory('/index-page/post/203')">فیلم</a>
         <a mat-stroked-button color="primary" routerLink="/index-page/about" [class.selected]="getIsCurrentCategory('/index-page/about')">در باره ما</a>
         <a mat-stroked-button color="primary" routerLink="/index-page/contact-us" [class.selected]="getIsCurrentCategory('/index-page/contact-us')">
           <!--<mat-icon>contact_phone</mat-icon>-->
@@ -158,10 +159,10 @@
       <a mat-raised-button color="primary" routerLink="/index-page/main-page" [class.selected]="getIsCurrentCategory('/index-page/main-page')" (click)="sidenav.toggle()">صفحه اصلی</a>
 
       <!--<a mat-raised-button color="primary" routerLink="/index-page/the-speaker" [class.selected]="getIsCurrentCategory('/index-page/the-speaker')" (click)="sidenav.toggle()">
-        خدمات فرهنگی
-      </a>-->
+    خدمات فرهنگی
+  </a>-->
 
-      <button mat-raised-button color="primary" [matMenuTriggerFor]="thespeaker2" [class.selected]="getIsCurrentCategory('/index-page/the-speaker')"  routerLink="xx" >
+      <button mat-raised-button color="primary" [matMenuTriggerFor]="thespeaker2" [class.selected]="getIsCurrentCategory('/index-page/the-speaker')" routerLink="xx" style="width: 100%;">
         <!--[class.selected]="getIsCurrentCategory('/index-page/the-speaker')"-->
         <mat-icon>more_vert</mat-icon> <!--[routerLinkActiveOptions]="{exact:true}"-->
         خدمات فرهنگی
@@ -175,8 +176,9 @@
         </button>
       </mat-menu>
 
-      <a mat-raised-button color="primary" routerLink="/index-page/the-speaker/request" [routerLinkActive]="['selected']"  (click)="sidenav.toggle()">درخواست خدمات</a>
-      <a mat-raised-button color="primary" routerLink="/index-page/post" [class.selected]="getIsCurrentCategory('/index-page/post')" (click)="sidenav.toggle()">اخبار</a>
+      <a mat-raised-button color="primary" routerLink="/index-page/the-speaker/request" [routerLinkActive]="['selected']" (click)="sidenav.toggle()">درخواست خدمات</a>
+      <a mat-raised-button color="primary" routerLink="/index-page/post/201" [class.selected]="getIsCurrentCategory('/index-page/post/201')" (click)="sidenav.toggle()">اخبار</a>
+      <a mat-raised-button color="primary" routerLink="/index-page/post/203" [class.selected]="getIsCurrentCategory('/index-page/post/203')" (click)="sidenav.toggle()">فیلم</a>
       <a mat-raised-button color="primary" routerLink="/index-page/about" [class.selected]="getIsCurrentCategory('/index-page/about')" (click)="sidenav.toggle()">در باره ما</a>
       <a mat-raised-button color="primary" routerLink="/index-page/contact-us" [class.selected]="getIsCurrentCategory('/index-page/contact-us')" (click)="sidenav.toggle()">
         <!--<mat-icon>contact_phone</mat-icon>-->
@@ -185,11 +187,11 @@
 
       <!--{{options.value.fixed ? 'Fixed' : 'Non-fixed'}} Sidenav-->
       <!--<a mat-stroked-button routerLink="/index-page/the-speaker" [class.selected]="getIsCurrentCategory('/index-page/the-speaker')" >سخنرانان</a>
-      <a mat-stroked-button routerLink="/index-page/crisis-center" [class.selected]="getIsCurrentCategory('/index-page/crisis-center')" > Crisis Center</a>
-      <a mat-stroked-button routerLink="/index-page/superheroes" [class.selected]="getIsCurrentCategory('/index-page/superheroes')" >Heroes</a>
-      <a mat-stroked-button routerLink="/index-page/admin" [class.selected]="getIsCurrentCategory('/index-page/admin')" >Admin</a>
-      <a mat-stroked-button routerLink="/index-page/login" [class.selected]="getIsCurrentCategory('/index-page/login')" >Login</a>
-      <a mat-stroked-button [routerLink]="[{ outlets: { popup: ['compose'] } }]" >Contact</a>-->
+  <a mat-stroked-button routerLink="/index-page/crisis-center" [class.selected]="getIsCurrentCategory('/index-page/crisis-center')" > Crisis Center</a>
+  <a mat-stroked-button routerLink="/index-page/superheroes" [class.selected]="getIsCurrentCategory('/index-page/superheroes')" >Heroes</a>
+  <a mat-stroked-button routerLink="/index-page/admin" [class.selected]="getIsCurrentCategory('/index-page/admin')" >Admin</a>
+  <a mat-stroked-button routerLink="/index-page/login" [class.selected]="getIsCurrentCategory('/index-page/login')" >Login</a>
+  <a mat-stroked-button [routerLink]="[{ outlets: { popup: ['compose'] } }]" >Contact</a>-->
 
     </mat-sidenav>
 
@@ -215,7 +217,7 @@
       <!--<router-outlet name="popup"></router-outlet>-->
 
       <div style="clear: both"></div>
-      <footer class="example-footer" fxLayout="row" fxLayoutAlign="space-between center">
+      <footer class="example-footer" fxLayout="row" fxLayoutAlign="space-between center" >
 
         <!--<a style="margin-top: 20px" mat-button matTooltip="رحیل بیان" matTooltipShowDelay="500">
           <img style="height: 80px;" src="../../ng/assets/Image/logo.png" />
