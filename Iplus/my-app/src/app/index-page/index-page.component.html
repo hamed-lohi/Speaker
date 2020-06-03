@@ -31,7 +31,7 @@
 
       <ng-container *ngIf="authenticationService.currentUserValue">
 
-        <mat-search-bar matTooltip="جستجو" (onEnter)='searchBoxOnEnter($event)'></mat-search-bar>
+        <!--<mat-search-bar matTooltip="جستجو" (onEnter)='searchBoxOnEnter($event)'></mat-search-bar>-->
 
         <!--mat-icon-button-->
         <button mat-stroked-button [matMenuTriggerFor]="menu">
@@ -85,8 +85,6 @@
 
       <ng-container *ngIf="!authenticationService.currentUserValue">
 
-        <mat-search-bar matTooltip="جستجو" (onEnter)='searchBoxOnEnter($event)'></mat-search-bar>
-
         <button mat-stroked-button matTooltip="عضویت" matTooltipShowDelay="500" color="primary" routerLink="/register">
           <mat-icon>people</mat-icon>
           عضویت
@@ -103,7 +101,7 @@
 
     </mat-toolbar-row>
 
-    <mat-toolbar-row fxFlex  style="background-color: #0043ff0a; margin: 5px 0;">
+    <mat-toolbar-row fxFlex style="background-color: #0043ff0a; margin: 5px 0;">
 
       <button mat-icon-button fxHide="true" fxShow.sm="true" fxShow.xs="true" (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
 
@@ -140,6 +138,11 @@
           تماس با ما
         </a>
       </div>
+
+      <div fxFlex></div>
+
+      <mat-search-bar matTooltip="جستجو" (onEnter)='searchBoxOnEnter($event)'></mat-search-bar>
+
     </mat-toolbar-row>
 
     <!--<a mat-button color="primary" routerLink="/index-page/crisis-center" [class.selected]="getIsCurrentCategory('/index-page/crisis-center')" >Crisis Center</a>
