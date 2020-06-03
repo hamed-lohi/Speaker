@@ -157,7 +157,7 @@
                  [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top"
                  [fixedBottomGap]="options.value.bottom">
 
-      <button mat-raised-button matTooltip="پنل مدیریت سایت" matTooltipShowDelay="500" color="accent" routerLink="/admin-panel" *ngIf="showAdminPanelBtn()">
+      <button mat-raised-button matTooltip="پنل مدیریت سایت" matTooltipShowDelay="500" color="accent" routerLink="/admin-panel" *ngIf="showAdminPanelBtn()" style="width: 100%;">
         <mat-icon>build</mat-icon>
       </button>
       <a mat-raised-button color="primary" routerLink="/index-page/main-page" [class.selected]="getIsCurrentCategory('/index-page/main-page')" (click)="sidenav.toggle()">صفحه اصلی</a>
