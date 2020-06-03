@@ -7,10 +7,9 @@
     "\\src\\app\\index-page\\main-page",
     "\\src\\app\\index-page\\main-page\\main-page-list",
     "\\src\\app\\index-page\\main-page\\main-page-list\\top-carousel",
-    "\\src\\app\\index-page\\post",
     "\\src\\app\\index-page\\post\\post-list",
     "\\src\\app\\index-page\\post\\post-list\\post-detail"
   ],
-  "SelectedNode": "\\src\\app\\index-page\\post\\post-list\\post-list.component.ts",
+  "SelectedNode": "\\tsconfig.json",
   "PreviewInSolutionExplorer": false
 }

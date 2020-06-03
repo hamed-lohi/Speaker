@@ -11,20 +11,103 @@
 </a>
 
 <ng-container *ngIf="shouldRun">
-  <mat-toolbar class="example-header" fxLayout="row wrap">
+  <mat-toolbar class="example-header" fxLayout="column wrap">
 
-    <a style="min-width: 167px;" mat-button matTooltip="رحیل بیان" matTooltipShowDelay="500">
-      <img style="height: 60px;" src="assets/Image/logo.png" />
-      <span class="logo-sub-title">سامانه خدمات فرهنگی</span>
-    </a>
+    
 
-    <mat-toolbar-row fxFlex fxHide="false" fxShow.sm="false" fxShow.xs="false">
+    <mat-toolbar-row fxFlex fxLayout="row" fxLayoutAlign="end center">
+
+      <a style="min-width: 167px;" mat-button matTooltip="رحیل بیان" matTooltipShowDelay="500">
+        <img style="height: 60px;" src="assets/Image/logo.png" />
+        <span class="logo-sub-title">سامانه خدمات فرهنگی</span>
+      </a>
+
+      <!--<div class="user-actions-toolbar" >-->
+
+      <!--<button mat-icon-button fxHide="true" fxShow.sm="true" fxShow.xs="true" (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>-->
+
+      <div fxFlex></div>
 
 
+      <ng-container *ngIf="authenticationService.currentUserValue">
 
-      <div>
+        <mat-search-bar matTooltip="جستجو" (onEnter)='searchBoxOnEnter($event)'></mat-search-bar>
+
+        <!--mat-icon-button-->
+        <button mat-stroked-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+          {{authenticationService.currentUserValue.FullName}}
+        </button>
+        <mat-menu #menu="matMenu">
+
+          <!--<button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>Redial</span>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>voicemail</mat-icon>
+        <span>Check voicemail</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button>-->
 
 
+          <button mat-menu-item routerLink="/index-page/account/19">
+            <mat-icon>assignment_turned_in</mat-icon>
+            <span>پروفایل من</span>
+          </button>
+
+          <button mat-menu-item routerLink="/index-page/account/20">
+            <mat-icon>vpn_key</mat-icon>
+            <span>تغییر کلمه عبور</span>
+          </button>
+
+          <button mat-menu-item (click)="logout()">
+            <mat-icon color="warn">power_settings_new</mat-icon>
+            <span>خروج از حساب کاربری</span>
+          </button>
+
+          <!--<a mat-stroked-button matTooltip="خروج از حساب کاربری" matTooltipShowDelay="500" color="warn" (click)="logout()">
+        <mat-icon>power_settings_new</mat-icon>
+        <span>خروج از حساب کاربری</span>
+      </a>-->
+
+        </mat-menu>
+
+
+        <!--<button mat-stroked-button routerLink="/index-page/account" [class.selected]="getIsCurrentCategory('/index-page/account')">
+      <mat-icon>perm_identity</mat-icon>{{authenticationService.currentUserValue.FullName}}
+    </button>-->
+
+      </ng-container>
+
+      <ng-container *ngIf="!authenticationService.currentUserValue">
+
+        <mat-search-bar matTooltip="جستجو" (onEnter)='searchBoxOnEnter($event)'></mat-search-bar>
+
+        <button mat-stroked-button matTooltip="عضویت" matTooltipShowDelay="500" color="primary" routerLink="/register">
+          <mat-icon>people</mat-icon>
+          عضویت
+        </button>
+
+        <button mat-stroked-button matTooltip="ورود" matTooltipShowDelay="500" color="primary" routerLink="/login">
+          <mat-icon>perm_identity</mat-icon>
+          ورود
+        </button>
+
+      </ng-container>
+
+      <!--</div>-->
+
+    </mat-toolbar-row>
+
+    <mat-toolbar-row fxFlex  style="background-color: #0043ff0a; margin: 5px 0;">
+
+      <button mat-icon-button fxHide="true" fxShow.sm="true" fxShow.xs="true" (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+
+      <div fxHide="false" fxShow.sm="false" fxShow.xs="false">
 
         <button mat-stroked-button matTooltip="پنل مدیریت سایت" matTooltipShowDelay="500" color="accent" routerLink="/admin-panel" *ngIf="showAdminPanelBtn()">
           <mat-icon>build</mat-icon>
@@ -60,91 +143,12 @@
     </mat-toolbar-row>
 
     <!--<a mat-button color="primary" routerLink="/index-page/crisis-center" [class.selected]="getIsCurrentCategory('/index-page/crisis-center')" >Crisis Center</a>
-    <a mat-button color="primary" routerLink="/index-page/superheroes" [class.selected]="getIsCurrentCategory('/index-page/superheroes')" >Heroes</a>
-    <a mat-button color="primary" routerLink="/index-page/admin" [class.selected]="getIsCurrentCategory('/index-page/admin')" >Admin</a>
-    <a mat-button color="primary" routerLink="/index-page/login" [class.selected]="getIsCurrentCategory('/index-page/login')" >Login</a>
-    <a mat-button color="primary" [routerLink]="[{ outlets: { popup: ['compose'] } }]" >Contact</a>-->
-
-    <mat-toolbar-row fxFlex fxLayout="row" fxLayoutAlign="end center">
-      <!--<div class="user-actions-toolbar" >-->
-      <button mat-icon-button fxHide="true" fxShow.sm="true" fxShow.xs="true" (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
-
-      <div fxFlex></div>
+  <a mat-button color="primary" routerLink="/index-page/superheroes" [class.selected]="getIsCurrentCategory('/index-page/superheroes')" >Heroes</a>
+  <a mat-button color="primary" routerLink="/index-page/admin" [class.selected]="getIsCurrentCategory('/index-page/admin')" >Admin</a>
+  <a mat-button color="primary" routerLink="/index-page/login" [class.selected]="getIsCurrentCategory('/index-page/login')" >Login</a>
+  <a mat-button color="primary" [routerLink]="[{ outlets: { popup: ['compose'] } }]" >Contact</a>-->
 
 
-      <ng-container *ngIf="authenticationService.currentUserValue">
-
-        <mat-search-bar matTooltip="جستجو" (onEnter)='searchBoxOnEnter($event)'></mat-search-bar>
-
-        <!--mat-icon-button-->
-        <button mat-stroked-button [matMenuTriggerFor]="menu">
-          <mat-icon>more_vert</mat-icon>
-          {{authenticationService.currentUserValue.FullName}}
-        </button>
-        <mat-menu #menu="matMenu">
-
-          <!--<button mat-menu-item>
-            <mat-icon>dialpad</mat-icon>
-            <span>Redial</span>
-          </button>
-          <button mat-menu-item disabled>
-            <mat-icon>voicemail</mat-icon>
-            <span>Check voicemail</span>
-          </button>
-          <button mat-menu-item>
-            <mat-icon>notifications_off</mat-icon>
-            <span>Disable alerts</span>
-          </button>-->
-
-
-          <button mat-menu-item routerLink="/index-page/account/19">
-            <mat-icon>assignment_turned_in</mat-icon>
-            <span>پروفایل من</span>
-          </button>
-
-          <button mat-menu-item routerLink="/index-page/account/20">
-            <mat-icon>vpn_key</mat-icon>
-            <span>تغییر کلمه عبور</span>
-          </button>
-
-          <button mat-menu-item (click)="logout()">
-            <mat-icon color="warn">power_settings_new</mat-icon>
-            <span>خروج از حساب کاربری</span>
-          </button>
-
-          <!--<a mat-stroked-button matTooltip="خروج از حساب کاربری" matTooltipShowDelay="500" color="warn" (click)="logout()">
-            <mat-icon>power_settings_new</mat-icon>
-            <span>خروج از حساب کاربری</span>
-          </a>-->
-
-        </mat-menu>
-
-
-        <!--<button mat-stroked-button routerLink="/index-page/account" [class.selected]="getIsCurrentCategory('/index-page/account')">
-          <mat-icon>perm_identity</mat-icon>{{authenticationService.currentUserValue.FullName}}
-        </button>-->
-
-      </ng-container>
-
-      <ng-container *ngIf="!authenticationService.currentUserValue">
-
-        <mat-search-bar matTooltip="جستجو" (onEnter)='searchBoxOnEnter($event)'></mat-search-bar>
-
-        <button mat-stroked-button matTooltip="عضویت" matTooltipShowDelay="500" color="primary" routerLink="/register">
-          <mat-icon>people</mat-icon>
-          عضویت
-        </button>
-
-        <button mat-stroked-button matTooltip="ورود" matTooltipShowDelay="500" color="primary" routerLink="/login">
-          <mat-icon>perm_identity</mat-icon>
-          ورود
-        </button>
-        
-      </ng-container>
-
-      <!--</div>-->
-
-    </mat-toolbar-row>
 
   </mat-toolbar>
 

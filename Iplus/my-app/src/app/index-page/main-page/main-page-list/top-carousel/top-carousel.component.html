@@ -23,7 +23,7 @@
     <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
     <mat-card-content>
 
-      <ngu-carousel #myCarousel [inputs]="carouselTileConfig" [dataSource]="postList">
+      <ngu-carousel #myCarouselN [inputs]="carouselTileConfig" [dataSource]="postList">
 
         <!--<div *nguCarouselDef="let item;" class="item">
           <div class="tile">
@@ -75,11 +75,11 @@
         <!--<button NguCarouselPrev class="leftRs"><</button>
         <button NguCarouselNext class="rightRs">></button>-->
 
-        <button NguCarouselPrev class="leftRs" [style.opacity]="myCarousel.isFirst ? 0.5:1"><mat-icon>chevron_right</mat-icon></button>
-        <button NguCarouselNext class="rightRs" [style.opacity]="myCarousel.isLast ? 0.5:1"><mat-icon>chevron_left</mat-icon></button>
+        <button NguCarouselPrev class="leftRs" [style.opacity]="myCarouselN.isFirst ? 0.5:1"><mat-icon>chevron_right</mat-icon></button>
+        <button NguCarouselNext class="rightRs" [style.opacity]="myCarouselN.isLast ? 0.5:1"><mat-icon>chevron_left</mat-icon></button>
 
         <ul class="myPoint" NguCarouselPoint>
-          <li *ngFor="let i of myCarousel.pointNumbers; let j = index" [class.active]="i==myCarousel.activePoint" (click)="myCarousel.moveTo(j)"></li>
+          <li *ngFor="let item of myCarouselN.pointNumbers; let j = index" [class.active]="item==myCarouselN.activePoint" (click)="myCarouselN.moveTo(j)"></li>
         </ul>
 
 
@@ -127,7 +127,7 @@
     <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
     <mat-card-content>
 
-      <ngu-carousel #myCarousel [inputs]="carouselTileConfig" [dataSource]="filmList">
+      <ngu-carousel #myCarouselF [inputs]="carouselTileConfig" [dataSource]="filmList">
 
         <!--<div *nguCarouselDef="let item;" class="item">
           <div class="tile">
@@ -179,11 +179,11 @@
         <!--<button NguCarouselPrev class="leftRs"><</button>
         <button NguCarouselNext class="rightRs">></button>-->
 
-        <button NguCarouselPrev class="leftRs" [style.opacity]="myCarousel.isFirst ? 0.5:1"><mat-icon>chevron_right</mat-icon></button>
-        <button NguCarouselNext class="rightRs" [style.opacity]="myCarousel.isLast ? 0.5:1"><mat-icon>chevron_left</mat-icon></button>
+        <button NguCarouselPrev class="leftRs" [style.opacity]="myCarouselF.isFirst ? 0.5:1"><mat-icon>chevron_right</mat-icon></button>
+        <button NguCarouselNext class="rightRs" [style.opacity]="myCarouselF.isLast ? 0.5:1"><mat-icon>chevron_left</mat-icon></button>
 
         <ul class="myPoint" NguCarouselPoint>
-          <li *ngFor="let i of myCarousel.pointNumbers; let j = index" [class.active]="i==myCarousel.activePoint" (click)="myCarousel.moveTo(j)"></li>
+          <li *ngFor="let i of myCarouselF.pointNumbers; let j = index" [class.active]="i==myCarouselF.activePoint" (click)="myCarouselF.moveTo(j)"></li>
         </ul>
 
 
@@ -230,7 +230,7 @@
   </mat-card-header>
   <mat-card-content>
 
-    <ngu-carousel #myCarousel [inputs]="carouselTileConfig" [dataSource]="topSpeakersList">
+    <ngu-carousel #myCarouselT [inputs]="carouselTileConfig" [dataSource]="topSpeakersList">
 
       <!--<div *nguCarouselDef="let item;" class="item">
         <div class="tile">
@@ -283,11 +283,11 @@
       <!--<button NguCarouselPrev class="leftRs"><</button>
       <button NguCarouselNext class="rightRs">></button>-->
 
-      <button NguCarouselPrev class="leftRs" [style.opacity]="myCarousel.isFirst ? 0.5:1"><mat-icon>chevron_right</mat-icon></button>
-      <button NguCarouselNext class="rightRs" [style.opacity]="myCarousel.isLast ? 0.5:1"><mat-icon>chevron_left</mat-icon></button>
+      <button NguCarouselPrev class="leftRs" [style.opacity]="myCarouselT.isFirst ? 0.5:1"><mat-icon>chevron_right</mat-icon></button>
+      <button NguCarouselNext class="rightRs" [style.opacity]="myCarouselT.isLast ? 0.5:1"><mat-icon>chevron_left</mat-icon></button>
 
       <ul class="myPoint" NguCarouselPoint>
-        <li *ngFor="let i of myCarousel.pointNumbers; let j = index" [class.active]="i==myCarousel.activePoint" (click)="myCarousel.moveTo(j)"></li>
+        <li *ngFor="let i of myCarouselT.pointNumbers; let j = index" [class.active]="i==myCarouselT.activePoint" (click)="myCarouselT.moveTo(j)"></li>
       </ul>
 
 
@@ -353,7 +353,7 @@
         <button NguCarouselNext class="rightRs" [style.opacity]="myCarousela.isLast ? 0.5:1"><mat-icon>chevron_left</mat-icon></button>
 
         <ul class="myPoint" NguCarouselPoint>
-          <li *ngFor="let i of myCarousela.pointNumbers; let i = index" [class.active]="i==myCarousela.activePoint" (click)="myCarousela.moveTo(i)"></li>
+          <li *ngFor="let item of myCarousela.pointNumbers; let i = index" [class.active]="item==myCarousela.activePoint" (click)="myCarousela.moveTo(i)"></li>
         </ul>
 
 
@@ -417,7 +417,7 @@
         <button NguCarouselNext class="rightRs" [style.opacity]="myCarouselb.isLast ? 0.5:1"><mat-icon>chevron_left</mat-icon></button>
 
         <ul class="myPoint" NguCarouselPoint>
-          <li *ngFor="let i of myCarouselb.pointNumbers; let i = index" [class.active]="i==myCarouselb.activePoint" (click)="myCarouselb.moveTo(i)"></li>
+          <li *ngFor="let item of myCarouselb.pointNumbers; let i = index" [class.active]="item==myCarouselb.activePoint" (click)="myCarouselb.moveTo(i)"></li>
         </ul>
 
 
@@ -481,7 +481,7 @@
         <button NguCarouselNext class="rightRs" [style.opacity]="myCarouselc.isLast ? 0.5:1"><mat-icon>chevron_left</mat-icon></button>
 
         <ul class="myPoint" NguCarouselPoint>
-          <li *ngFor="let i of myCarouselc.pointNumbers; let i = index" [class.active]="i==myCarouselc.activePoint" (click)="myCarouselc.moveTo(i)"></li>
+          <li *ngFor="let item of myCarouselc.pointNumbers; let i = index" [class.active]="item==myCarouselc.activePoint" (click)="myCarouselc.moveTo(i)"></li>
         </ul>
 
 
@@ -546,7 +546,7 @@
         <button NguCarouselNext class="rightRs" [style.opacity]="myCarouseld.isLast ? 0.5:1"><mat-icon>chevron_left</mat-icon></button>
 
         <ul class="myPoint" NguCarouselPoint>
-          <li *ngFor="let i of myCarouseld.pointNumbers; let i = index" [class.active]="i==myCarouseld.activePoint" (click)="myCarouseld.moveTo(i)"></li>
+          <li *ngFor="let item of myCarouseld.pointNumbers; let i = index" [class.active]="item==myCarouseld.activePoint" (click)="myCarouseld.moveTo(i)"></li>
         </ul>
 
 
@@ -614,7 +614,7 @@
         <button NguCarouselNext class="rightRs" [style.opacity]="myCarousele.isLast ? 0.5:1"><mat-icon>chevron_left</mat-icon></button>
 
         <ul class="myPoint" NguCarouselPoint>
-          <li *ngFor="let i of myCarousele.pointNumbers; let i = index" [class.active]="i==myCarousele.activePoint" (click)="myCarousele.moveTo(i)"></li>
+          <li *ngFor="let item of myCarousele.pointNumbers; let i = index" [class.active]="item==myCarousele.activePoint" (click)="myCarousele.moveTo(i)"></li>
         </ul>
 
 

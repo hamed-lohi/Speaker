@@ -488,7 +488,7 @@ namespace MyServices.Services
                         a.Id,
                         Name = a.Title,
                         ImageUrl = a.TblFileImage.FileUrl,
-                        Activity="خبر",
+                        Activity=  (a.SSPostType == 203? "فیلم" : "خبر"),
                         Type = 2,// اخبار
                     });
 
