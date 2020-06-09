@@ -6,10 +6,12 @@
     "\\src\\app\\index-page",
     "\\src\\app\\index-page\\main-page",
     "\\src\\app\\index-page\\main-page\\main-page-list",
-    "\\src\\app\\index-page\\main-page\\main-page-list\\top-carousel",
     "\\src\\app\\index-page\\post\\post-list",
-    "\\src\\app\\index-page\\post\\post-list\\post-detail"
+    "\\src\\app\\index-page\\post\\post-list\\post-detail",
+    "\\src\\app\\index-page\\the-speaker",
+    "\\src\\app\\index-page\\the-speaker\\the-speaker-list",
+    "\\src\\app\\index-page\\the-speaker\\the-speaker-list\\the-speaker-detail"
   ],
-  "SelectedNode": "\\tsconfig.json",
+  "SelectedNode": "\\src\\app\\index-page\\the-speaker\\the-speaker-list\\the-speaker-detail\\the-speaker-detail.component.html",
   "PreviewInSolutionExplorer": false
 }

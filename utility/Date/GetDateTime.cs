@@ -17,6 +17,7 @@ namespace utility.Date
         public static long CurrentTimeSeconds()
         {
             return (long)(DateTime.UtcNow - Jan1st1970).TotalSeconds;
+            //return (long)(DateTime.UtcNow - Jan1st1970).TotalMilliseconds;
         }
 
         /// <summary>
