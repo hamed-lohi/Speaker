@@ -1,34 +1,65 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <title>رحیل بیان</title>
-  <base href="/ng/">
+  <head>
+    <meta charset="UTF-8" />
+    <title>رحیل بیان</title>
+    <base href="/ng/" />
 
-  <meta name="description" content="سامانه خدمات فرهنگی رحیل بیان">
-  <meta name="keywords" content="رحیل بیان,rahilebayan.ir,سامانه اعزام سخنران,درخواست سخنران,درخواست استاد,سخنران,استاد,سخنرانان,اساتید,جبهه فرهنگی,انقلاب اسلامی,آذربایجان شرقی,تبریز,خدمات فرهنگی,اعزام سخنران,">
-  <meta name="author" content="جبهه فرهنگی انقلاب اسلامی استان آذربایجان شرقی - رحیل بیان">
+    <meta name="description" content="سامانه خدمات فرهنگی رحیل بیان" />
+    <meta
+      name="keywords"
+      content="رحیل بیان,rahilebayan.ir,سامانه اعزام سخنران,درخواست سخنران,درخواست استاد,سخنران,استاد,سخنرانان,اساتید,جبهه فرهنگی,انقلاب اسلامی,آذربایجان شرقی,تبریز,خدمات فرهنگی,اعزام سخنران,"
+    />
+    <meta
+      name="author"
+      content="جبهه فرهنگی انقلاب اسلامی استان آذربایجان شرقی - رحیل بیان"
+    />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <!--<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <!--<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
-  <!--<link href="styles.css" rel="stylesheet" />-->
-  <script src="assets/ckeditor/ckeditor.js"></script>
-  <script>
-    CKEDITOR.config.forcePasteAsPlainText = true;
-    CKEDITOR.config.contentsLangDirection = 'rtl';
-  </script>
-  <meta name="google-site-verification" content="A9Kq2vpGha2BU8bMjlpQQPM56Dw_i1AK8taVICDZ21o" />
-</head>
-<body>
-<app-root>
+    <!--<link href="styles.css" rel="stylesheet" />-->
+    <script src="assets/ckeditor/ckeditor.js"></script>
+    <script>
+      CKEDITOR.config.forcePasteAsPlainText = true;
+      CKEDITOR.config.contentsLangDirection = "rtl";
+    </script>
+    <meta
+      name="google-site-verification"
+      content="A9Kq2vpGha2BU8bMjlpQQPM56Dw_i1AK8taVICDZ21o"
+    />
+  </head>
+  <body>
+    <app-root>
+      <div
+        style="
+          position: fixed;
+          left: 50%;
+          top: 35%;
+          z-index: 1000;
+          height: 31px;
+          min-width: 175px;
+        "
+        mat-button
+        matTooltip="رحیل بیان"
+        matTooltipShowDelay="500"
+      >
+        <img style="height: 60px" src="assets/Image/logo.png" />
+        <span class="logo-sub-title">سامانه خدمات فرهنگی</span>
+      </div>
 
-  <div style=" position: fixed;left: 50%;top: 35%;z-index: 1000;height: 31px; min-width: 175px;" mat-button matTooltip="رحیل بیان" matTooltipShowDelay="500">
-    <img style="height: 60px;" src="assets/Image/logo.png"/>
-    <span class="logo-sub-title">سامانه خدمات فرهنگی</span>
-  </div>
-
-</app-root> 
-</body>
+      <div style="display: none">
+        <a href="https://pejmancarpet.ir/" title="فرش پژمان">فرش پژمان</a>
+        &emsp;
+        <a href="https://persiankover.com/" title="Persian kover">
+          Persian kover
+        </a>
+        &emsp;
+        <a href="https://abzar-mamaghani.ir/" title="ابزار ممقانی"
+          >ابزار ممقانی</a
+        >
+      </div>
+    </app-root>
+  </body>
 </html>
